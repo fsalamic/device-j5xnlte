@@ -1,8 +1,6 @@
 FORCE_32_BIT := true
 
--include vendor/samsung/gprimeltecan/BoardConfigVendor.mk
-
-LOCAL_PATH := device/samsung/gprimeltecan
+LOCAL_PATH := device/samsung/gprimelte-common
 
 # Inherit from common
 -include device/samsung/qcom-common/BoardConfigCommon.mk
@@ -31,9 +29,6 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 BOARD_USES_ALSA_AUDIO := true
 
-# Asserts
-TARGET_OTA_ASSERT_DEVICE := gprimeltecan,gprimeltevl,samsung_sm_g530w,g530w
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -41,7 +36,7 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
 # Custom RIL class
-BOARD_RIL_CLASS    := ../../../device/samsung/gprimeltecan/ril
+BOARD_RIL_CLASS    := ../../../device/samsung/gprimelte-common/ril
 PROTOBUF_SUPPORTED := true
 
 # Bootloader
@@ -61,11 +56,13 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 AUDIO_FEATURE_ENABLED_FM := true
 BOARD_HAVE_QCOM_FM := true
 
-#sec_s3fwrn5 <- NFC HAL
+#sec_s3fwrn5 <- NFC DEVICE
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
+BOARD_HARDWARE_CLASS += \
+	hardware/samsung/cmhw \
+	$(LOCAL_PATH)/cmhw
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -100,11 +97,18 @@ EXTENDED_FONT_FOOTPRINT := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
 #ART
-#WITH_DEXPREOPT := true
+# Dex
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_gprimeltecan.cpp
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_UNIFIED_DEVICE := true
 TARGET_PROVIDES_INIT_RC := true
@@ -118,7 +122,6 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_fortuna_can_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_SELINUX_LOG_CONFIG := selinux_log_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/grandprime
@@ -133,14 +136,10 @@ MALLOC_IMPL := dlmalloc
 TARGET_USERIMAGES_USE_EXT4          := true
 BOARD_BOOTIMAGE_PARTITION_SIZE      := 13631488
 BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 15728640
-BOARD_SYSTEMIMAGE_PARTITION_SIZE    := 2359296000
-BOARD_SYSTEMIMAGE_PARTITION_TPE    := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE     := 314572800
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE   := ext4
-BOARD_PERSISTIMAGE_PARTITION_SIZE   := 8388608
-BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_USERDATAIMAGE_PARTITION_SIZE  := 4942966784
 BOARD_FLASH_BLOCK_SIZE              := 131072
+#blockdev --getbsz /dev/block/mmcblk0p9
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
@@ -180,7 +179,7 @@ include vendor/samsung/common/sepolicy/sepolicy.mk
 include vendor/cm/sepolicy/qcom/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/gprimeltecan/sepolicy
+    $(LOCAL_PATH)/sepolicy
 
 BOARD_SEPOLICY_UNION += \
 	audiod.te \
@@ -266,17 +265,14 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_DRIVER_MODULE_PATH  := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_NAME := "wlan"
 
-# inherit from the proprietary version
--include vendor/samsung/gprimeltecan/BoardConfigVendor.mk
-
 #make, move, symlink and strip the wlan kernel module.
 KERNEL_EXTERNAL_MODULES:
-	+$(MAKE) -C device/samsung/$(TARGET_DEVICE)/wlan/prima/ WLAN_ROOT=$(ANDROID_BUILD_TOP)/device/samsung/$(TARGET_DEVICE)/wlan/prima/ \
+	+$(MAKE) -C device/samsung/gprimelte-common/wlan/prima/ WLAN_ROOT=$(ANDROID_BUILD_TOP)/device/samsung/gprimelte-common/wlan/prima/ \
 		KERNEL_SOURCE=$(KERNEL_OUT) ARCH="arm" \
 		CROSS_COMPILE="arm-eabi-"
 	mkdir $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)/ -p
 	ln -sf /system/lib/modules/$(WLAN_CHIPSET)/$(WLAN_CHIPSET)_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
-	mv device/samsung/$(TARGET_DEVICE)/wlan/prima/wlan.ko $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)/$(WLAN_CHIPSET)_wlan.ko
+	mv device/samsung/gprimelte-common/wlan/prima/wlan.ko $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)/$(WLAN_CHIPSET)_wlan.ko
 	arm-eabi-strip --strip-debug $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)/$(WLAN_CHIPSET)_wlan.ko
-	+$(MAKE) -C device/samsung/$(TARGET_DEVICE)/wlan/prima/ clean
+	+$(MAKE) -C device/samsung/gprimelte-common/wlan/prima/ clean
 TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES

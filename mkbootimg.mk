@@ -23,7 +23,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(INSTAL
 	 --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) \
 	 --dt $(INSTALLED_DTIMAGE_TARGET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --output $@
 	@echo -e ${CL_CYN}"Making image SEAndroid Enforcing..."${CL_RST}
-	echo -n "SEANDROIDENFORCE" >> $@
+	$(hide) echo -n "SEANDROIDENFORCE" >> $@
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_BOOTIMAGE_PARTITION_SIZE),raw)
 	@echo -e ${CL_CYN}"Made boot image: $@"${CL_RST}
 
@@ -36,7 +36,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 	 --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) \
 	 --dt $(INSTALLED_DTIMAGE_TARGET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --output $@
 	@echo -e ${CL_CYN}"Making image SEAndroid Enforcing..."${CL_RST}
-	echo -n "SEANDROIDENFORCE" >> $@
+	$(hide) echo -n "SEANDROIDENFORCE" >> $@
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}
 

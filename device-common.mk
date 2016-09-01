@@ -1,20 +1,14 @@
-LOCAL_PATH := device/samsung/gprimeltecan
-$(call inherit-product-if-exists, vendor/samsung/gprimeltecan/gprimeltecan-vendor.mk)
+LOCAL_PATH := device/samsung/gprimelte-common
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from common
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
 
-# Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/gprimeltecan/gprimeltecan-common-vendor.mk)
-
 include $(LOCAL_PATH)/keylayout/Layouts.mk
 
 # Common overlay
-DEVICE_PACKAGE_OVERLAYS += device/samsung/gprimeltecan/overlay
-
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/dt.img:dt.img
+DEVICE_PACKAGE_OVERLAYS += device/samsung/gprimelte-common/overlay
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -59,26 +53,6 @@ PRODUCT_PACKAGES += \
 	com.android.ims.internal \
 	ims-common \
 	voip-common
-
-# Configuration
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/Diag.cfg:system/etc/Diag.cfg \
-	$(LOCAL_PATH)/configs/Diag_audio.cfg:system/etc/Diag_audio.cfg \
-	$(LOCAL_PATH)/configs/Diag_volte.cfg:system/etc/Diag_volte.cfg \
-	$(LOCAL_PATH)/configs/Diag_zero.cfg:system/etc/Diag_zero.cfg
-	
-# Audio configuration
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/audio/Bluetooth_cal.acdb:system/etc/Bluetooth_cal.acdb \
-	$(LOCAL_PATH)/audio/General_cal.acdb:system/etc/General_cal.acdb \
-	$(LOCAL_PATH)/audio/Global_cal.acdb:system/etc/Global_cal.acdb \
-	$(LOCAL_PATH)/audio/Handset_cal.acdb:system/etc/Handset_cal.acdb \
-	$(LOCAL_PATH)/audio/Hdmi_cal.acdb:system/etc/Hdmi_cal.acdb \
-	$(LOCAL_PATH)/audio/Headset_cal.acdb:system/etc/Headset_cal.acdb \
-	$(LOCAL_PATH)/audio/Speaker_cal.acdb:system/etc/Speaker_cal.acdb \
-	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-	$(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-	$(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Boot jars
 PRODUCT_BOOT_JARS += \
@@ -230,10 +204,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-	$(LOCAL_PATH)/media/media_codecs_8929.xml:system/etc/media_codecs_8929.xml \
-	$(LOCAL_PATH)/media/media_codecs_8939.xml:system/etc/media_codecs_8939.xml \
-	$(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
-	$(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
@@ -300,12 +270,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	power.qcom
 
-# Prebuilt
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilt/dsi_config.xml:system/etc/data/dsi_config.xml \
-	$(LOCAL_PATH)/prebuilt/netmgr_config.xml:system/etc/data/netmgr_config.xml \
-	$(LOCAL_PATH)/prebuilt/qmi_config.xml:system/etc/data/qmi_config.xml
-
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.use_data_netmgrd=false \
@@ -317,8 +281,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.loc.nlp_name=com.qualcomm.location \
 	ro.gps.agps_provider=1 \
 	ro.pip.gated=0 \
-	ro.product.model=SM-G530W \
-	ro.product.device=gprimeltecan \
 	cm.updater.uri=http://grandprime.ddns.net/api \
 	ro.telephony.ril_class=SamsungQcomRIL
 
@@ -330,16 +292,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-# security config
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
-
 # Terminal
 PRODUCT_PACKAGES += Terminal
 
 # USB
 PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
+
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+	LiveWallpapers \
+	LiveWallpapersPicker \
+	VisualizationWallpapers \
+	librs_jni
 
 # Wifi configuration files
 PRODUCT_COPY_FILES += \
