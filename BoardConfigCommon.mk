@@ -179,7 +179,7 @@ include vendor/samsung/common/sepolicy/sepolicy.mk
 include vendor/cm/sepolicy/qcom/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    $(LOCAL_PATH)/sepolicy
+    device/samsung/gprimelte-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
 	audiod.te \
@@ -237,9 +237,9 @@ TW_NO_USB_STORAGE := true
 TW_TARGET_USES_QCOM_BSP := true
 TW_THEME := portrait_hdpi
 ifeq ($(TW),)
-	TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
+	TARGET_RECOVERY_FSTAB := device/samsung/gprimelte-common/recovery.fstab
 else
-	TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/twrp.fstab
+	TARGET_RECOVERY_FSTAB := device/samsung/gprimelte-common/recovery/twrp.fstab
 endif
 
 # Vold
