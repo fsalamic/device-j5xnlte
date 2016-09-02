@@ -8,6 +8,7 @@
   <project path="frameworks/opt/telephony" name="CyanogenMod/android_frameworks_opt_telephony" groups="pdk"  revision="caf/cm-12.1"  />
 -->
 
+  <project path="device/samsung/gprimelte-common" name="vince2678/android_device_samsung_gprimelte-common" groups="device" remote="github" revision="cm-12.1"/>
   <project path="device/samsung/gprimeltecan" name="vince2678/android_device_samsung_gprimeltecan" groups="device" remote="github" revision="cm-12.1"/>
   <project path="device/qcom-common" name="vince2678/android_device_qcom-common" remote="github" revision="cm-12.1"/>
   <project path="vendor/samsung/gprimeltecan" name="vince2678/android_vendor_samsung_gprimeltecan" remote="github" revision="cm-12.1"/>
@@ -15,5 +16,14 @@
   <project path="android/external/iwconfig" name="vince2678/android_external_iwconfig" remote="github" revision="cm-12.1"/>
   <project path="kernel/samsung/grandprime" name="vince2678/android_kernel_samsung_grandprime" remote="github" revision="cm-12.1"/>
   <project path="device/samsung/qcom-common" name="CyanogenMod/android_device_samsung_qcom-common" groups="device" />
+  
+  <project path="device/samsung/gprimeltemtr" name="vince2678/android_device_samsung_gprimeltemtr" groups="device" remote="github" revision="cm-12.1"/>
+  <project path="vendor/samsung/gprimeltemtr" name="vince2678/android_vendor_samsung_gprimeltemtr" remote="github" revision="cm-12.1"/>
+  
+  <project path="device/samsung/gprimeltetmo" name="vince2678/android_device_samsung_gprimeltetmo" groups="device" remote="github" revision="cm-12.1"/>
+  <project path="vendor/samsung/gprimeltetmo" name="vince2678/android_vendor_samsung_gprimeltetmo" remote="github" revision="cm-12.1"/>
+  
+  <project path="device/samsung/gprimeltexx" name="vince2678/android_device_samsung_gprimeltexx" groups="device" remote="github" revision="cm-12.1"/>
+  <project path="vendor/samsung/gprimeltexx" name="vince2678/android_vendor_samsung_gprimeltexx" remote="github" revision="cm-12.1"/>
 
 </manifest>
