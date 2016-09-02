@@ -98,14 +98,15 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
 #ART
 # Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+#ifeq ($(HOST_OS),linux)
+#  ifneq ($(TARGET_BUILD_VARIANT),eng)
+#    ifeq ($(WITH_DEXPREOPT),)
+#      WITH_DEXPREOPT := true
+#    endif
+#  endif
+#endif
+#WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+#BOOT IMG ONLY DEXPREOPT IS PROBLEMATIC (FOR NOW) --> TCMCI is the cause
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
