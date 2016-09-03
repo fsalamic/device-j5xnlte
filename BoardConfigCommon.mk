@@ -56,13 +56,9 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 AUDIO_FEATURE_ENABLED_FM := true
 BOARD_HAVE_QCOM_FM := true
 
-#sec_s3fwrn5 <- NFC DEVICE
-
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-	hardware/samsung/cmhw \
-	$(LOCAL_PATH)/cmhw
+BOARD_HARDWARE_CLASS +=	$(LOCAL_PATH)/cmhw
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -140,11 +136,13 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 15728640
 BOARD_CACHEIMAGE_PARTITION_SIZE     := 314572800
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE   := ext4
 BOARD_FLASH_BLOCK_SIZE              := 131072
+#i think this should be 4096
 #blockdev --getbsz /dev/block/mmcblk0p9
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
-#CM_POWERHAL_EXTENSION := qcom
+CM_POWERHAL_EXTENSION := qcom
+WITH_QC_PERF := true
 
 # Media
 TARGET_QCOM_MEDIA_VARIANT           := caf
