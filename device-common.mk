@@ -1,5 +1,3 @@
-LOCAL_PATH := device/samsung/gprimelte-common
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from common
@@ -7,8 +5,10 @@ $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
 
 include $(LOCAL_PATH)/keylayout/Layouts.mk
 
+LOCAL_PATH := device/samsung/gprimelte-common
+
 # Common overlay
-DEVICE_PACKAGE_OVERLAYS += device/samsung/gprimelte-common/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
 	Tag \
 	com.android.nfc_extras \
 	com.android.nfc.helper \
-	NfcNci
+#	NfcNci
 
 # Audio
 PRODUCT_PACKAGES += \
