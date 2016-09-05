@@ -100,7 +100,7 @@ ifeq ($(HOST_OS),linux)
       WITH_DEXPREOPT := true
     endif
   endif
-#endif
+endif
 #WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 #BOOT IMG ONLY DEXPREOPT IS PROBLEMATIC (FOR NOW) --> TCMCI is the cause
 
