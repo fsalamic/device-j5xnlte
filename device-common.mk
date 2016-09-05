@@ -106,6 +106,11 @@ PRODUCT_PACKAGES += \
 	libqcomfm_jni \
 	qcom.fmradio
 
+#ViperFX
+PRODUCT_PACKAGES += \
+	libv4a_fx_ics.so \
+	ViperFX
+	
 # INIT
 PRODUCT_PACKAGES += \
 	fstab.qcom \
