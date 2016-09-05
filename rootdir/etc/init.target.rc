@@ -162,6 +162,7 @@ on boot
     start rmt_storage
     #load modules at boot
     insmod /system/lib/modules/adsprpc.ko
+    insmod /system/lib/modules/radio-iris-transport.ko
     insmod /system/lib/modules/ansi_cprng.ko
     insmod /system/lib/modules/core_ctl.ko
     insmod /system/lib/modules/evbug.ko
