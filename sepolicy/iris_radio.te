@@ -1,0 +1,21 @@
+# Bluetooth executables and scripts
+type iris_radio, domain;
+type iris_radio_exec, exec_type, file_type;
+
+# Start fm.sh from init
+init_daemon_domain(iris_radio)
+
+# Run init.qcom.fm.sh
+allow iris_radio shell_exec:file { entrypoint read };
+allow iris_radio iris_radio_exec:file { getattr open execute_no_trans };
+
+# init.qcom.fm.sh needs /system/bin/log access
+allow iris_radio devpts:chr_file rw_file_perms;
+
+# Talk to init over the property socket
+unix_socket_connect(iris_radio, property, init)
+# Set persist.service.bdroid.* and bluetooth.* property values
+allow iris_radio iris_radio_prop:property_service set;
+
+# Allow getprop/setprop for init.qcom.fm.sh
+allow iris_radio system_file:file execute_no_trans;
