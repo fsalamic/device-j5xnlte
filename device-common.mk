@@ -219,6 +219,7 @@ PRODUCT_PACKAGES += \
 	libkeyutils \
 	libjpega \
 	libexifa \
+	tcmiface \
 	charon
 
 # OMX
@@ -281,6 +282,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.loc.nlp_name=com.qualcomm.location \
 	ro.gps.agps_provider=1 \
 	ro.pip.gated=0 \
+	ro.telephony.samsung.realcall=true \
 	cm.updater.uri=http://grandprime.ddns.net/api \
 	ro.telephony.ril_class=SamsungQcomRIL
 
