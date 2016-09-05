@@ -56,9 +56,9 @@ PRODUCT_PACKAGES += \
 
 # Boot jars
 PRODUCT_BOOT_JARS += \
-	tcmiface \
 	qcom.fmradio \
 	qcmediaplayer
+#	tcmiface \
 #	oem-services \
 
 # Connectivity Engine support
@@ -224,7 +224,6 @@ PRODUCT_PACKAGES += \
 	libkeyutils \
 	libjpega \
 	libexifa \
-	tcmiface \
 	charon
 
 # OMX
