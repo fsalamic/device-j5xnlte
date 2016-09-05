@@ -1,3 +1,15 @@
+diff -u a/hardware/qcom/media-caf/msm8916/Android.mk b/hardware/qcom/media-caf/msm8916/Android.mk
+--- a/hardware/qcom/media-caf/msm8916/Android.mk	2016-09-04 03:57:36.807902214 -0400
++++ b/hardware/qcom/media-caf/msm8916/Android.mk	2016-09-05 01:49:02.080545137 -0400
+@@ -11,6 +11,8 @@
+ include $(QCOM_MEDIA_ROOT)/mm-video-v4l2/Android.mk
+ include $(QCOM_MEDIA_ROOT)/libc2dcolorconvert/Android.mk
+ 
++include $(QCOM_MEDIA_ROOT)/../msm8960/QCMediaPlayer/Android.mk
++
+ ifeq ($(TARGET_BOARD_PLATFORM),apq8084)
+ include $(QCOM_MEDIA_ROOT)/videopp/Android.mk
+ endif
 diff --git a/frameworks/base/data/keyboards/Generic.kl b/frameworks/base/data/keyboards/Generic.kl
 index f10ba96..ae84296 100644
 --- a/frameworks/base/data/keyboards/Generic.kl
