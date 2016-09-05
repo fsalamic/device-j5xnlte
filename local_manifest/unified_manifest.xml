@@ -25,6 +25,7 @@
 
   <remove-project name="platform/sdk" />
 
+  <project path="bootable/recovery-twrp" name="omnirom/android_bootable_recovery" remote="github" revision="android-5.1"/>
   <project path="device/samsung/gprimelte-common" name="vince2678/android_device_samsung_gprimelte-common" groups="device" remote="github" revision="cm-12.1"/>
   <project path="device/samsung/gprimeltecan" name="vince2678/android_device_samsung_gprimeltecan" groups="device" remote="github" revision="cm-12.1"/>
   <project path="device/qcom-common" name="vince2678/android_device_qcom-common" remote="github" revision="cm-12.1"/>
