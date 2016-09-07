@@ -89,13 +89,13 @@ public class ScreenStateReceiver extends BroadcastReceiver implements SensorEven
         boolean ret;
         if(enable) {
             // Turn on touch input
-            ret = write_sysfs(Constants.TS_PATH, true);
+            ret = write_sysfs(Constants.getTsPath(), true);
             if(DEBUG){
                Log.d(TAG, "Enabled touchscreen successfully? :" + ret);
             }   
         } else {
             // Turn off touch input
-            ret = write_sysfs(Constants.TS_PATH, false);
+            ret = write_sysfs(Constants.getTsPath(), false);
             if(DEBUG){
                 Log.d(TAG, "Disabled touchscreen successfully? :" + ret);
             }   
