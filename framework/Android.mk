@@ -38,7 +38,6 @@ LOCAL_MODULE := com.broadcom.bt
 LOCAL_SRC_FILES    := $(LOCAL_MODULE).jar
 LOCAL_MODULE_CLASS := JAVA_LIBRARIES
 include $(BUILD_PREBUILT)
-endif
 
 ########################
 ##com.broadcom.nfc
