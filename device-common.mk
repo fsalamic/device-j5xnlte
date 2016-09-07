@@ -108,7 +108,7 @@ PRODUCT_PACKAGES += \
 
 #ViperFX
 PRODUCT_PACKAGES += \
-	libv4a_fx_ics.so \
+	libv4a_fx_ics \
 	ViperFX
 	
 # INIT
