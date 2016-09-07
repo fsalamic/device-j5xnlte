@@ -31,10 +31,10 @@ PRODUCT_PACKAGES += \
 
 #JARS
 PRODUCT_PACKAGES += \
-	com.google.widevine.software.drm \
-	com.gsma.services.nfc \
-	org.simalliance.openmobileapi \
-	com.broadcom.bt
+	com.google.widevine.software.drm
+#	com.gsma.services.nfc \
+#	org.simalliance.openmobileapi \
+#	com.broadcom.bt
 
 # Audio
 PRODUCT_PACKAGES += \
