@@ -134,7 +134,6 @@ PRODUCT_PACKAGES += \
 	init.qcom.sh \
 	init.target.rc \
 	ueventd.qcom.rc \
-	init.qcom.zram.sh \
 	init.rilchip.rc \
 	init.rilcommon.rc \
 	twrp.fstab
