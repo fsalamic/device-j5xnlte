@@ -1,3 +1,4 @@
+LOCAL_PATH:= $(call my-dir)
 ifneq ($(filter gprimeltecan gprimeltexx gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
 ########################
 ##nfcnci.apk
