@@ -1,7 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 ifneq ($(filter gprimeltecan gprimeltexx gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
 ########################
-##com.google.widevine.jarftware.drm
+##com.google.widevine.software.drm
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 #LOCAL_CERTIFICATE := platform
