@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
 	Tag \
 	com.android.nfc_extras \
 	com.android.nfc.helper \
-	SecNfcNci
+#	NfcNci
 
 #JARS
 PRODUCT_PACKAGES += \
