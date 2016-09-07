@@ -191,7 +191,6 @@ BOARD_SEPOLICY_UNION += \
 	surfaceflinger.te \
 	bluetooth.te \
 	bluetooth_loader.te \
-	iris_radio.te \
 	wcnss_service.te \
 	healthd.te \
 	kernel.te \
