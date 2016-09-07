@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
 	Tag \
 	com.android.nfc_extras \
 	com.android.nfc.helper \
-#	NfcNci
+	SecNfcNci
 
 # Audio
 PRODUCT_PACKAGES += \
