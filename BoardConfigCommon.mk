@@ -51,9 +51,10 @@ TARGET_PROVIDES_CAMERA_HAL := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Charger
-BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_SHOW_PERCENTAGE := true
+BOARD_CHARGER_ENABLE_SUSPEND    := true
+BOARD_CHARGER_SHOW_PERCENTAGE   := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+CHARGING_ENABLED_PATH           := /sys/class/power_supply/battery/batt_lp_charging
 
 # Enable QCOM FM feature
 AUDIO_FEATURE_ENABLED_FM := true
@@ -105,7 +106,6 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 #WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
-#BOOT IMG ONLY DEXPREOPT IS PROBLEMATIC (FOR NOW) --> TCMCI is the cause
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
