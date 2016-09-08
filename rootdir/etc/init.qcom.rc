@@ -84,7 +84,6 @@ on early-boot
 on boot
 	start rmt_storage
     insmod /system/lib/modules/adsprpc.ko
-    insmod /system/lib/modules/radio-iris-transport.ko
     # access permission for secure touch
     chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0020/secure_touch_enable
     chmod 0440 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0020/secure_touch
@@ -223,6 +222,12 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
     
+    # Set the parameters for KSM
+	write /sys/kernel/mm/ksm/pages_to_scan 100
+	write /sys/kernel/mm/ksm/sleep_millisecs 500
+	write /sys/kernel/mm/ksm/run 1
+	write /sys/kernel/mm/ksm/deferred_timer 1
+
 #
 # start qmuxd and qmiproxy for appropriate targets
 #
@@ -544,7 +549,7 @@ service bt-sap /system/bin/sapd 15
     disabled
     oneshot
 
-service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
+service ftmd /system/bin/ftmdaemon
     class late_start
     user root
     group bluetooth net_bt_admin misc net_bt_stack qcom_diag
@@ -731,7 +736,6 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     class late_start
     user root
     group system
-    disabled
     oneshot
 
 on property:crypto.driver.load=1
