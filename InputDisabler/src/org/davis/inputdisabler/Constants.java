@@ -37,16 +37,16 @@ public final class Constants {
 
 		/* Check if the touch screen files exist and set the correct path */
 		if(ts_1.exists()) {
-			return this.TS_PATH_1;
+			return TS_PATH_1;
 		}
 		else if (ts_2.exists()) {
-			return this.TS_PATH_2;
+			return TS_PATH_2;
 		}
 		else if (ts_3.exists()) {
-			return this.TS_PATH_3;
+			return TS_PATH_3;
 		}
 		/* in case none of the others are extant, try the generic path as backup */
-    	return this.TS_PATH_4;
+    	return TS_PATH_4;
     }
 
 }
