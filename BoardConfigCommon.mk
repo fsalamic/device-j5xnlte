@@ -90,7 +90,7 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # GPS
-#TARGET_GPS_HAL_PATH := $(LOCAL_PATH)/gps
+#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8916
 #TARGET_NO_RPC := true
 
 # Healthd
@@ -105,7 +105,7 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
-#WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
