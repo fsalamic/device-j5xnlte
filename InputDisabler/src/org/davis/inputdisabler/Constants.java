@@ -21,7 +21,7 @@ public final class Constants {
 	public static final String TS_PATH_1 =
 		"/sys/devices/soc.0/i2c.70/i2c-12/12-0020/input/input3/enabled";
 	public static final String TS_PATH_2 =
-		"/sys/devices/soc.0/i2c.70/i2c-12/12-0020/input/input2/enabled"
+		"/sys/devices/soc.0/i2c.70/i2c-12/12-0020/input/input2/enabled";
 	public static final String TS_PATH_3 =
 		"/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0020/input/input2/enabled";
 	public static final String TS_PATH_4 =
