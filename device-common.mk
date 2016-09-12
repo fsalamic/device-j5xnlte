@@ -63,8 +63,9 @@ PRODUCT_PACKAGES += \
 
 # Boot jars
 PRODUCT_BOOT_JARS += \
-	qcom.fmradio \
 	qcmediaplayer
+
+#	qcom.fmradio \
 #	tcmiface \
 #	oem-services \
 
@@ -107,11 +108,11 @@ PRODUCT_PACKAGES += \
 	libebtc
 
 # FM
-PRODUCT_PACKAGES += \
-	FM2 \
-	FMRecord \
-	libqcomfm_jni \
-	qcom.fmradio
+#PRODUCT_PACKAGES += \
+#	FM2 \
+#	FMRecord \
+#	libqcomfm_jni \
+#	qcom.fmradio
 
 #ViperFX
 PRODUCT_PACKAGES += \
