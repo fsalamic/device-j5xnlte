@@ -289,6 +289,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.security.icd.flagmode=single \
 	ro.vendor.extension_library=libqti-perfd-client.so \
 	persist.radio.apm_sim_not_pwdn=1 \
+	persist.radio.sib16_support=1 \
 	persist.gps.qc_nlp_in_use=1 \
 	persist.loc.nlp_name=com.qualcomm.location \
 	ro.gps.agps_provider=1 \
