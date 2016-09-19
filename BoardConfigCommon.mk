@@ -176,42 +176,10 @@ BOARD_PROVIDES_LIBRIL := false
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 include vendor/cm/sepolicy/sepolicy.mk
-include vendor/samsung/common/sepolicy/sepolicy.mk
 include vendor/cm/sepolicy/qcom/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
     device/samsung/gprimelte-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-	audiod.te \
-	ueventd.te \
-	file.te \
-	shell.te \
-	surfaceflinger.te \
-	bluetooth.te \
-	bluetooth_loader.te \
-	wcnss_service.te \
-	healthd.te \
-	kernel.te \
-	property.te \
-	rild.te \
-	qseecomd.te \
-	system_server.te \
-	time_daemon.te \
-	sysinit.te \
-	mm-qcamerad.te \
-	file_contexts \
-	init_shell.te \
-	init.te \
-	lkmd.te \
-	qmuxd.te \
-	rfs_access.te \
-	rmt_storage.te \
-	keystore.te \
-	perfd.te \
-	mediaserver.te \
-	vold.te \
-	property_contexts
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
