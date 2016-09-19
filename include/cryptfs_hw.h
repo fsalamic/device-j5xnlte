@@ -34,11 +34,13 @@ extern "C" {
 #endif
 
 unsigned int wipe_hw_device_encryption_key(const char*);
+int set_hw_device_encryption_key(const char*, const char*);
+int update_hw_device_encryption_key(const char*, const char*, const char*);
+int clear_hw_device_encryption_key(void);
 unsigned int is_hw_disk_encryption(const char*);
 unsigned int is_hw_fde_enabled(void);
-int set_hw_device_encryption_key(const char*, const char*);
-int update_hw_device_encryption_key(const char*, const char*);
 int is_ice_enabled(void);
+int should_use_keymaster();
 
 #ifdef __cplusplus
 }
