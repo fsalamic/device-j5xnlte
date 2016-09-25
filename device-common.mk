@@ -52,6 +52,7 @@ PRODUCT_PACKAGES += \
 	tinymix \
 	tinyplay \
 	tinycap \
+	libFLAC \
 	tinypcminfo
 
 #VoLTE calling support
