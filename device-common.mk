@@ -296,7 +296,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.gps.agps_provider=1 \
 	ro.pip.gated=0 \
 	ro.telephony.samsung.realcall=true \
-	cm.updater.uri=http://grandprime.ddns.net/api \
+	cm.updater.uri=http://grandprime.ddns.net/OTA/api \
 	ro.telephony.ril_class=SamsungQcomRIL
 
 # Ril
