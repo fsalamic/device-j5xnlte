@@ -27,14 +27,23 @@ PRODUCT_PACKAGES += \
 	Tag \
 	com.android.nfc_extras \
 	com.android.nfc.helper \
-#	NfcNci
+	NfcNci \
+	libnfc-nci
+
+# NFC prebuilt files
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/nfc/libnfc-sec-hal.conf:system/etc/libnfc-sec-hal.conf \
+	$(LOCAL_PATH)/nfc/libnfc-sec.conf:system/etc/libnfc-brcm.conf \
+	$(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml \
+	packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt
+
+# NFC workaround
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilt/setNFCperms:system/etc/init.d/setNFCperms
 
 #JARS
 PRODUCT_PACKAGES += \
 	com.google.widevine.software.drm
-#	com.gsma.services.nfc \
-#	org.simalliance.openmobileapi \
-#	com.broadcom.bt
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -64,9 +73,8 @@ PRODUCT_PACKAGES += \
 
 # Boot jars
 PRODUCT_BOOT_JARS += \
-	qcmediaplayer
-
-#	qcom.fmradio \
+	qcmediaplayer \
+	qcom.fmradio
 #	tcmiface \
 #	oem-services \
 
@@ -109,11 +117,18 @@ PRODUCT_PACKAGES += \
 	libebtc
 
 # FM
-#PRODUCT_PACKAGES += \
-#	FM2 \
-#	FMRecord \
-#	libqcomfm_jni \
-#	qcom.fmradio
+PRODUCT_PACKAGES += \
+	FM2 \
+	FMRecord \
+	libqcomfm_jni \
+	qcom.fmradio
+
+ADDITIONAL_BUILD_PROPERTIES += \
+	hw.fm.mode=normal
+
+# FM workaround
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilt/enableRadioFM:system/etc/init.d/enableRadioFM
 
 #ViperFX
 PRODUCT_PACKAGES += \
@@ -263,6 +278,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
 	frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
 	frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+	frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
 	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
 	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
 	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \

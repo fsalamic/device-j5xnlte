@@ -1,0 +1,20 @@
+#!/system/bin/sh
+# workaroud for FM radio
+# from init.qcom.fm.sh
+
+setprop hw.fm.init.script 0
+
+LOG_TAG="qcom-fm"
+LOG_NAME="${0}:"
+
+logi ()
+{
+  /system/bin/log -t $LOG_TAG -p i "$LOG_NAME $@"
+}
+
+logi "inserting the radio transport module"
+insmod /system/lib/modules/radio-iris-transport.ko
+
+setprop hw.fm.init.script 1
+
+exit 0
