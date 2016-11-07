@@ -159,8 +159,7 @@ PRODUCT_PACKAGES += \
 	init.target.rc \
 	ueventd.qcom.rc \
 	init.rilchip.rc \
-	init.rilcommon.rc \
-	twrp.fstab
+	init.rilcommon.rc
 
 # Keylayout
 PRODUCT_COPY_FILES += \
