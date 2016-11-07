@@ -24,3 +24,7 @@
 
 # data files
 /data/snd(/.*)?                                     u:object_r:snd_data_file:s0
+
+# Macloader
+/system/bin/macloader                                   u:object_r:macloader_exec:s0
+
