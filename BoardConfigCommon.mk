@@ -180,7 +180,7 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/gprimelte-common/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/samsung/gprimelte-common/recovery/fstab.qcom
 BOARD_HAS_LARGE_FILESYSTEM			:= true
 TARGET_RECOVERY_DENSITY 			:= hdpi
 BOARD_HAS_NO_MISC_PARTITION 		:= true
