@@ -73,7 +73,7 @@ PRODUCT_PACKAGES += \
 
 # Boot jars
 PRODUCT_BOOT_JARS += \
-	qcmediaplayer \
+	libqcmediaplayer \
 	qcom.fmradio \
 	tcmiface
 #	oem-services \
