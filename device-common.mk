@@ -58,6 +58,7 @@ PRODUCT_PACKAGES += \
 	libqcompostprocbundle \
 	libqcomvisualizer \
 	libqcomvoiceprocessing \
+	libqcmediaplayer \
 	tinymix \
 	tinyplay \
 	tinycap \
@@ -73,7 +74,6 @@ PRODUCT_PACKAGES += \
 
 # Boot jars
 PRODUCT_BOOT_JARS += \
-	libqcmediaplayer \
 	qcom.fmradio \
 	tcmiface
 #	oem-services \
