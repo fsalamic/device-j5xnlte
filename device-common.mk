@@ -78,6 +78,10 @@ PRODUCT_BOOT_JARS += \
 	tcmiface
 #	oem-services \
 
+# BoringSSL Hacks
+PRODUCT_PACKAGES += \
+	libboringssl-compat
+
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
 	libcnefeatureconfig
