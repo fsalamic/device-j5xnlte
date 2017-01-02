@@ -266,7 +266,7 @@ PRODUCT_PACKAGES += \
 	libkeyutils \
 	libjpega \
 	libexifa \
-	charon
+	libstlport
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -284,8 +284,7 @@ PRODUCT_PACKAGES += \
 	libOmxVenc \
 	libOmxVidEnc \
 	libOmxVdpp \
-	libstagefrighthw \
-	qcmediaplayer
+	libstagefrighthw
 
 # Permissions
 PRODUCT_COPY_FILES += \
