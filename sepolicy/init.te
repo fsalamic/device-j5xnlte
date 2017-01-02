@@ -1,3 +1,9 @@
 #============= init ==============
 allow init self:process execmem;
 allow init vfat:dir search;
+allow init qmuxd_socket:sock_file { write };
+allow init qmuxd:unix_stream_socket { connectto };
+allow init init:socket { read write create ioctl };
+allow init sysfs_mpdecision:file { getattr };
+allow init thermal_device:chr_file { ioctl write };
+allow init smem_log_device:chr_file { ioctl write };

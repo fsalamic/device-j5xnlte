@@ -1,0 +1,4 @@
+#============= qti_init_shell ==============
+allow qti_init_shell bluetooth_loader_exec:file { open read };
+allow qti_init_shell bluetooth_data_file:file { getattr };
+allow qti_init_shell btnvtool_exec:file { open read getattr execute execute_no_trans };
