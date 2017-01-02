@@ -1,6 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 #Fix InputDisabler to support all the devices to reduce duplication.
-ifneq ($(filter gprimeltecan gprimeltetmo gprimeltemtr gprimeltexx, $(TARGET_DEVICE)),)
+ifneq ($(filter gprimeltecan gprimeltetmo gprimeltemtr gprimeltespr, $(TARGET_DEVICE)),)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional

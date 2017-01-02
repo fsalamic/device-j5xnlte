@@ -1,6 +1,6 @@
 LOCAL_PATH := device/samsung/gprimelte-common
 
-ifneq ($(filter gprimeltecan gprimeltexx gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
+ifneq ($(filter gprimeltecan gprimeltespr gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/Vendor_04e8_Product_a005.kl:system/usr/keylayout/Vendor_04e8_Product_a005.kl \
 	$(LOCAL_PATH)/keylayout/Vendor_046d_Product_b331.kl:system/usr/keylayout/Vendor_046d_Product_b331.kl \

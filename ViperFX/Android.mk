@@ -1,5 +1,5 @@
 LOCAL_PATH:= $(call my-dir)
-ifneq ($(filter gprimeltecan gprimeltexx gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
+ifneq ($(filter gprimeltecan gprimeltespr gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
 ########################
 ##viperfx.apk
 include $(CLEAR_VARS)

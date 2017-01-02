@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter gprimeltecan gprimeltexx gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
+ifneq ($(filter gprimeltecan gprimeltespr gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
