@@ -227,19 +227,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
 
-# Audio configuration
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/audio/Bluetooth_cal.acdb:system/etc/Bluetooth_cal.acdb \
-	$(LOCAL_PATH)/audio/General_cal.acdb:system/etc/General_cal.acdb \
-	$(LOCAL_PATH)/audio/Global_cal.acdb:system/etc/Global_cal.acdb \
-	$(LOCAL_PATH)/audio/Handset_cal.acdb:system/etc/Handset_cal.acdb \
-	$(LOCAL_PATH)/audio/Hdmi_cal.acdb:system/etc/Hdmi_cal.acdb \
-	$(LOCAL_PATH)/audio/Headset_cal.acdb:system/etc/Headset_cal.acdb \
-	$(LOCAL_PATH)/audio/Speaker_cal.acdb:system/etc/Speaker_cal.acdb \
-	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-	$(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-	$(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
-
 # Configuration files
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf \
@@ -251,10 +238,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/dsi_config.xml:system/etc/data/dsi_config.xml \
 	$(LOCAL_PATH)/configs/netmgr_config.xml:system/etc/data/netmgr_config.xml \
 	$(LOCAL_PATH)/configs/qmi_config.xml:system/etc/data/qmi_config.xml \
-	$(LOCAL_PATH)/media/media_codecs_8929.xml:system/etc/media_codecs_8929.xml \
-	$(LOCAL_PATH)/media/media_codecs_8939.xml:system/etc/media_codecs_8939.xml \
-	$(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
-	$(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # Misc
 PRODUCT_PACKAGES += \
