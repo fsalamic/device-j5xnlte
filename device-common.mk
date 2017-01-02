@@ -76,7 +76,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
 	qcom.fmradio \
 	tcmiface
-#	oem-services \
 
 # BoringSSL Hacks
 PRODUCT_PACKAGES += \
@@ -208,14 +207,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.debuggable=1 \
 	persist.service.adb.enable=1
 
-# GPS
-#PRODUCT_PACKAGES += \
-#	gps.default \
-#	libloc_core \
-#	libgps.utils \
-#	libloc_eng \
-#	libloc_api_v02
-
 #Sensors
 PRODUCT_PACKAGES += \
 	sensors.default
@@ -236,9 +227,34 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
 
-# MSM IRQ Balancer configuration file
+# Audio configuration
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
+	$(LOCAL_PATH)/audio/Bluetooth_cal.acdb:system/etc/Bluetooth_cal.acdb \
+	$(LOCAL_PATH)/audio/General_cal.acdb:system/etc/General_cal.acdb \
+	$(LOCAL_PATH)/audio/Global_cal.acdb:system/etc/Global_cal.acdb \
+	$(LOCAL_PATH)/audio/Handset_cal.acdb:system/etc/Handset_cal.acdb \
+	$(LOCAL_PATH)/audio/Hdmi_cal.acdb:system/etc/Hdmi_cal.acdb \
+	$(LOCAL_PATH)/audio/Headset_cal.acdb:system/etc/Headset_cal.acdb \
+	$(LOCAL_PATH)/audio/Speaker_cal.acdb:system/etc/Speaker_cal.acdb \
+	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+	$(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
+	$(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+
+# Configuration files
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf \
+	$(LOCAL_PATH)/configs/Diag.cfg:system/etc/Diag.cfg \
+	$(LOCAL_PATH)/configs/Diag_audio.cfg:system/etc/Diag_audio.cfg \
+	$(LOCAL_PATH)/configs/Diag_volte.cfg:system/etc/Diag_volte.cfg \
+	$(LOCAL_PATH)/configs/Diag_zero.cfg:system/etc/Diag_zero.cfg \
+	$(LOCAL_PATH)/configs/sec_config:system/etc/sec_config \
+	$(LOCAL_PATH)/configs/dsi_config.xml:system/etc/data/dsi_config.xml \
+	$(LOCAL_PATH)/configs/netmgr_config.xml:system/etc/data/netmgr_config.xml \
+	$(LOCAL_PATH)/configs/qmi_config.xml:system/etc/data/qmi_config.xml \
+	$(LOCAL_PATH)/media/media_codecs_8929.xml:system/etc/media_codecs_8929.xml \
+	$(LOCAL_PATH)/media/media_codecs_8939.xml:system/etc/media_codecs_8939.xml \
+	$(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
+	$(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # Misc
 PRODUCT_PACKAGES += \
