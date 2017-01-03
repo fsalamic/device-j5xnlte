@@ -11,13 +11,11 @@ modules_install:
 	$(MAKE) INSTALL_MOD_STRIP=1 -C $(KERNEL_SRC) M=$(WLAN_ROOT) modules_install
 
 clean::
-	find -type f -iname '*.o' | xargs rm || true
-	find -type f -iname '*.ko' | xargs rm || true 
-	find -type f -iname '*.mod.o' | xargs rm || true 
-	find -type f -iname '*.mod.c' | xargs rm || true 
-	find -type f -iname '*.cmd' | xargs rm  || true 
-	find -type f -iname '*.o.cmd' | xargs rm || true 
-	rm -f *.o *.ko *.mod.c *.mod.o *~ .*.cmd Module.symvers || true
-	rm -rf .tmp_versions
-
+	find -type f -iname '*.o' | xargs rm -f
+	find -type f -iname '*.ko' | xargs rm -f
+	find -type f -iname '*.mod.o' | xargs rm -f
+	find -type f -iname '*.mod.c' | xargs rm -f
+	find -type f -iname '*.cmd' | xargs rm  -f
+	find -type f -iname '*.o.cmd' | xargs rm -f
+	rm -rf  *~ Module.symvers .tmp_versions
 
