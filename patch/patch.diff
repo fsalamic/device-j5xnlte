@@ -1,3 +1,25 @@
+diff --git a/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c b/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c
+index 32be300..8bc4838 100644
+--- a/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c
++++ b/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c
+@@ -1044,8 +1044,14 @@ static int hw_util_open(int card_no)
+     ALOGD("%s Opening device %s\n", __func__, dev_name);
+     fd = open(dev_name, O_WRONLY);
+     if (fd < 0) {
+-        ALOGE("%s: cannot open device '%s'\n", __func__, dev_name);
+-        return fd;
++        ALOGE("%s: cannot open device '%s'. Attempting again..\n", __func__, dev_name);
++
++	// attempt to open node 10.
++	memset(dev_name, 0, 256);
++	snprintf(dev_name, sizeof(dev_name), "/dev/snd/hwC%uD10",
++                           card_no);
++
++	fd = open(dev_name, O_WRONLY);
++	if (fd < 0) return fd;
+     }
+     ALOGD("%s success", __func__);
+     return fd;
 diff --git a/frameworks/base/core/jni/fd_utils-inl.h b/frameworks/base/core/jni/fd_utils-inl.h
 index f245a7fc..69f9e0b5 100644
 --- a/frameworks/base/core/jni/fd_utils-inl.h
