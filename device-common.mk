@@ -115,6 +115,7 @@ PRODUCT_PACKAGES += \
 	gralloc.msm8916 \
 	hwcomposer.msm8916 \
 	libtinyxml \
+	libtinyxml2 \
 	memtrack.msm8916
 
 # Ebtables
