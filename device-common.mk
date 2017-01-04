@@ -81,6 +81,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
 	libboringssl-compat
 
+# SHIM RIL
+PRODUCT_PACKAGES += \
+	libril_shim
+
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
 	libcnefeatureconfig
