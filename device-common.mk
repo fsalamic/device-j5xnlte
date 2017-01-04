@@ -253,7 +253,10 @@ PRODUCT_PACKAGES += \
 	libkeyutils \
 	libjpega \
 	libexifa \
-	libstlport
+	libstlport \
+	datatop \
+	sockev \
+	librmnetctl
 
 # OMX
 PRODUCT_PACKAGES += \
