@@ -194,7 +194,6 @@ PRODUCT_PACKAGES += \
 # Default Property Overrides
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp \
-	telephony.lteOnCdmaDevice=0 \
 	persist.eons.enabled=true \
 	persist.radio.apm_sim_not_pwdn=1 \
 	rild.libpath=/system/lib/libsec-ril.so \
