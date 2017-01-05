@@ -7,3 +7,11 @@ allow init init:socket { read write create ioctl };
 allow init sysfs_mpdecision:file { getattr };
 allow init thermal_device:chr_file { ioctl write };
 allow init smem_log_device:chr_file { ioctl write };
+allow init mpctl_socket:sock_file { write };
+allow init mpctl_data_file:file { append write };
+
+allow init diag_exec:file { read open getattr execute };
+allow init efs_file:dir { mounton };
+allow init rootfs:dir { relabelfrom };
+allow init wcnss_device:chr_file { write };
+
