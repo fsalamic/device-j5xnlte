@@ -153,24 +153,19 @@ PRODUCT_PACKAGES += \
 	init.class_main.sh \
 	init.mdm.sh \
 	init.qcom.audio.sh \
-	init.qcom.bms.sh \
 	init.qcom.bt.sh \
 	init.qcom.uicc.sh \
 	init.qcom.wifi.sh \
 	init.qcom.post_boot.sh \
 	init.qcom.class_core.sh \
 	init.qcom.early_boot.sh \
-	init.qcom.factory.sh \
 	init.qcom.syspart_fixup.sh \
 	init.qcom.usb.rc \
 	init.qcom.usb.sh \
 	init.qcom.rc \
 	init.qcom.fm.sh \
 	init.qcom.sh \
-	init.target.rc \
-	ueventd.qcom.rc \
-	init.rilchip.rc \
-	init.rilcommon.rc
+	ueventd.qcom.rc
 
 # Keylayout
 PRODUCT_COPY_FILES += \
