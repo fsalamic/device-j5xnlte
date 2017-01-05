@@ -26,6 +26,7 @@
 #
 
 import init.qcom.usb.rc
+#import init.carrier.rc
 
 on enable-low-power
 
@@ -462,10 +463,19 @@ on boot
     chmod 0664 /sys/class/power_supply/ps/status
     chown system radio /sys/class/power_supply/battery/batt_temp_table
     
+#enable zram
+on property:ro.config.zram=true
     swapon_all fstab.qcom
     write /proc/sys/vm/page-cluster 0
     write /proc/sys/vm/swappiness 100
-		
+	
+# Allow usb charging to be disabled peristently
+on property:persist.usb.chgdisabled=1
+    write /sys/class/power_supply/battery/charging_enabled 0
+
+on property:persist.usb.chgdisabled=0
+    write /sys/class/power_supply/battery/charging_enabled 1
+
 on fs
     mount_all fstab.qcom
 
@@ -489,6 +499,9 @@ on post-fs-data
 
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
+
+    # sec_efs_file
+    mkdir /efs/sec_efs 0775 radio system
 
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/misc/camera 0770 camera camera
@@ -740,6 +753,10 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
+service lpm /system/bin/lpm
+    class charger
+    critical
+
 on property:bluetooth.hciattach=true
     start hciattach
 
@@ -924,7 +941,15 @@ on property:persist.radio.multisim.config=dsds
     stop ril-daemon
     start ril-daemon
     start ril-daemon1
-	
+
+service ril-daemon /system/bin/rild
+    class main
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    socket rild-cas stream 660 casdrm mmb
+    user root
+    group radio cache inet misc audio sdcard_r sdcard_rw log qcom_diag system drmrpc vpn system shell 
+
 # RIL for multi rild
 service ril-daemon1 /system/bin/rild -l /system/lib/libsec-ril-dsds.so -c 2
     class main
@@ -933,6 +958,24 @@ service ril-daemon1 /system/bin/rild -l /system/lib/libsec-ril-dsds.so -c 2
     user root
     disabled
     group radio cache inet misc audio log qcom_diag system drmrpc sdcard_r sdcard_rw shell
+
+service usb_uicc_enable /system/bin/sh /system/etc/init.qcom.uicc.sh
+    class late_start
+    user root
+    disabled
+    oneshot
+
+service usb_uicc_daemon /system/bin/usb_uicc_client
+    class main
+    user system
+    group system log net_raw
+    oneshot
+
+on property:sys.usb_uicc.enabled=1
+    start usb_uicc_enable
+
+on property:sys.usb_uicc.enabled=0
+    start usb_uicc_enable
 
 service hcidump /system/bin/sh /system/etc/hcidump.sh
     user bluetooth
