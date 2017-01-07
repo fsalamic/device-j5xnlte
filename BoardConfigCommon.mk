@@ -66,7 +66,10 @@ BOARD_HAVE_QCOM_FM := true
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS +=	$(LOCAL_PATH)/cmhw
+BOARD_HARDWARE_CLASS :=	$(LOCAL_PATH)/cmhw
+BOARD_HARDWARE_CLASS +=	\
+	hardware/cyanogen/cmhw \
+	hardware/samsung/cmhw
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
