@@ -1,8 +1,8 @@
 diff --git a/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c b/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c
-index 32be300..8bc4838 100644
+index 32be300..1114690 100644
 --- a/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c
 +++ b/hardware/qcom/audio-caf/msm8916/hal/msm8916/platform.c
-@@ -1044,8 +1044,14 @@ static int hw_util_open(int card_no)
+@@ -1044,8 +1044,15 @@ static int hw_util_open(int card_no)
      ALOGD("%s Opening device %s\n", __func__, dev_name);
      fd = open(dev_name, O_WRONLY);
      if (fd < 0) {
