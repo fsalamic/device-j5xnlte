@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+
+  <remote  name="aosp5"
+           fetch="https://android.googlesource.com"
+           review="android-review.googlesource.com"
+	   revision="refs/tags/android-5.1.1_r28" />
+
   <remove-project name="device/generic/mini-emulator-arm64" />
   <remove-project name="device/generic/mini-emulator-mips" />
   <remove-project name="device/generic/mini-emulator-x86" />
@@ -24,26 +30,27 @@
   <remove-project name="platform/prebuilts/maven_repo/android" />
 
   <remove-project name="platform/sdk" />
+  
+ <project path="hardware/samsung" name="CyanogenMod/android_hardware_samsung" />
 
-  <project path="bootable/recovery-twrp" name="omnirom/android_bootable_recovery" remote="github" revision="android-5.1"/>
-  <project path="device/samsung/gprimelte-common" name="vince2678/android_device_samsung_gprimelte-common" groups="device" remote="github" revision="cm-12.1"/>
-  <project path="device/samsung/gprimeltecan" name="vince2678/android_device_samsung_gprimeltecan" groups="device" remote="github" revision="cm-12.1"/>
-  <project path="device/qcom-common" name="vince2678/android_device_qcom-common" remote="github" revision="cm-12.1"/>
-  <project path="vendor/samsung/gprimeltecan" name="vince2678/android_vendor_samsung_gprimeltecan" remote="github" revision="cm-12.1"/>
-  <project path="vendor/samsung/common" name="vince2678/android_vendor_samsung_common" remote="github" revision="cm-12.1"/>
-  <project path="android/external/iwconfig" name="vince2678/android_external_iwconfig" remote="github" revision="cm-12.1"/>
-  <project path="kernel/samsung/grandprime" name="vince2678/android_kernel_samsung_grandprime" remote="github" revision="cm-12.1"/>
+  <project path="device/qcom-common" name="CyanogenMod/android_device_qcom_common" remote="github" revision="cm-13.0"/>
   <project path="device/samsung/qcom-common" name="CyanogenMod/android_device_samsung_qcom-common" groups="device" />
-  
-  <project path="hardware/qcom/fm" name="CyanogenMod/android_hardware_qcom_fm" />
-  
-  <project path="device/samsung/gprimeltemtr" name="vince2678/android_device_samsung_gprimeltemtr" groups="device" remote="github" revision="cm-12.1"/>
-  <project path="vendor/samsung/gprimeltemtr" name="vince2678/android_vendor_samsung_gprimeltemtr" remote="github" revision="cm-12.1"/>
-  
-  <project path="device/samsung/gprimeltetmo" name="vince2678/android_device_samsung_gprimeltetmo" groups="device" remote="github" revision="cm-12.1"/>
-  <project path="vendor/samsung/gprimeltetmo" name="vince2678/android_vendor_samsung_gprimeltetmo" remote="github" revision="cm-12.1"/>
-  
-  <project path="device/samsung/gprimeltespr" name="vince2678/android_device_samsung_gprimeltespr" groups="device" remote="github" revision="cm-12.1"/>
-  <project path="vendor/samsung/gprimeltespr" name="vince2678/android_vendor_samsung_gprimeltespr" remote="github" revision="cm-12.1"/>
 
+  <project path="kernel/samsung/grandprime" name="vince2678/android_kernel_samsung_grandprime" remote="github" revision="cm-14.1"/>
+
+  <project path="device/samsung/gprimelte-common" name="vince2678/android_device_samsung_gprimelte-common" groups="device" remote="github" revision="cm-13.0"/>
+  <project path="device/samsung/gprimeltespr" name="vince2678/android_device_samsung_gprimeltespr" groups="device" remote="github" revision="cm-13.0"/>
+  <project path="vendor/samsung/gprimeltespr" name="vince2678/android_vendor_samsung_gprimeltespr" remote="github" revision="cm-13.0"/>
+  <project path="device/samsung/gprimeltemtr" name="vince2678/android_device_samsung_gprimeltemtr" groups="device" remote="github" revision="cm-13.0"/>
+  <project path="vendor/samsung/gprimeltemtr" name="vince2678/android_vendor_samsung_gprimeltemtr" remote="github" revision="cm-13.0"/>
+  <project path="device/samsung/gprimeltetmo" name="vince2678/android_device_samsung_gprimeltetmo" groups="device" remote="github" revision="cm-13.0"/>
+  <project path="vendor/samsung/gprimeltetmo" name="vince2678/android_vendor_samsung_gprimeltetmo" remote="github" revision="cm-13.0"/>
+  <project path="device/samsung/gprimeltecan" name="vince2678/android_device_samsung_gprimeltecan" groups="device" remote="github" revision="cm-13.0"/>
+  <project path="vendor/samsung/gprimeltecan" name="vince2678/android_vendor_samsung_gprimeltecan" remote="github" revision="cm-13.0"/>
+  <project path="external/boringssl-compat" name="CyanogenMod/android_external_sony_boringssl-compat" />
+  <project path="external/stlport" name="platform/external/stlport" groups="pdk" remote="aosp5" />
+  <project path="kernel/samsung/gtelwifiue" name="vince2678/android_kernel_samsung_gtelwifiue" remote="github" revision="cm-13.0"/>
+  <project path="device/samsung/gtel-common" name="vince2678/android_device_samsung_gtel-common" groups="device" remote="github" revision="cm-13.0"/>
+  <project path="device/samsung/gtelwifiue" name="vince2678/android_device_samsung_gtelwifiue" groups="device" remote="github" revision="cm-13.0"/>
+  <project path="vendor/samsung/gtelwifiue" name="vince2678/android_vendor_samsung_gtelwifiue" groups="device" remote="github" revision="cm-13.0"/>
 </manifest>
