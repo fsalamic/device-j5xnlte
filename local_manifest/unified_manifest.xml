@@ -36,7 +36,7 @@
   <project path="device/qcom-common" name="CyanogenMod/android_device_qcom_common" remote="github" revision="cm-13.0"/>
   <project path="device/samsung/qcom-common" name="CyanogenMod/android_device_samsung_qcom-common" groups="device" />
 
-  <project path="kernel/samsung/grandprime" name="vince2678/android_kernel_samsung_grandprime" remote="github" revision="cm-14.1"/>
+  <project path="kernel/samsung/galaxy" name="vince2678/android_kernel_samsung_galaxy" remote="github" revision="cm-14.1"/>
 
   <project path="device/samsung/gprimelte-common" name="vince2678/android_device_samsung_gprimelte-common" groups="device" remote="github" revision="cm-13.0"/>
   <project path="device/samsung/gprimeltespr" name="vince2678/android_device_samsung_gprimeltespr" groups="device" remote="github" revision="cm-13.0"/>
