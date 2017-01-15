@@ -458,7 +458,6 @@ on boot
     chmod 0664 /sys/class/power_supply/ps/status
     chown system radio /sys/class/power_supply/battery/batt_temp_table
 
- # KSM tuning
 on property:ro.config.ksm=true
     write /sys/kernel/mm/ksm/pages_to_scan 100
     write /sys/kernel/mm/ksm/sleep_millisecs 500
@@ -747,6 +746,11 @@ service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     user root
     oneshot
 
+service config_ksm /system/bin/sh /init.ksm.sh
+    class late_start
+    user root
+    oneshot
+
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
@@ -926,6 +930,7 @@ service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
+    start config_ksm
 
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     class late_start

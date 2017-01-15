@@ -156,6 +156,7 @@ PRODUCT_PACKAGES += \
 	init.carrier.rc \
 	init.class_main.sh \
 	init.mdm.sh \
+	init.ksm.sh \
 	init.qcom.audio.sh \
 	init.qcom.bt.sh \
 	init.qcom.uicc.sh \
