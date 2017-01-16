@@ -223,6 +223,11 @@ PRODUCT_COPY_FILES += \
 # macloader
 PRODUCT_PACKAGES += macloader
 
+# Audio configurations
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+	$(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
+
 # Media configurations
 PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
