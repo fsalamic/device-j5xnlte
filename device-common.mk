@@ -145,11 +145,6 @@ ADDITIONAL_BUILD_PROPERTIES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilt/enableRadioFM:system/etc/init.d/enableRadioFM
 
-#ViperFX
-PRODUCT_PACKAGES += \
-	libv4a_fx_ics \
-	ViperFX
-	
 # INIT
 PRODUCT_PACKAGES += \
 	fstab.qcom \
