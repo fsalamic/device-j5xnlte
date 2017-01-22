@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds. -->
+ <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Ambient display. -->
+    <integer name="config_screenBrightnessDoze">10</integer>
+    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <bool name="config_dozeAfterScreenOff">true</bool>
+
+ </resources>
