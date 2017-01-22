@@ -3,8 +3,9 @@
     <item name="none">0</item>
     <item name="screen.on">87</item>
     <item name="screen.full">187</item>
-    <item name="bluetooth.active">114</item>
-    <item name="bluetooth.on">2</item>
+    <item name="bluetooth.controller.rx">57</item>
+    <item name="bluetooth.controller.tx">57</item>
+    <item name="bluetooth.controller.idle">2</item>
     <item name="wifi.on">2</item>
     <item name="wifi.active">131</item>
     <item name="wifi.scan">255</item>
