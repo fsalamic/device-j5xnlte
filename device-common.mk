@@ -81,7 +81,6 @@ PRODUCT_PACKAGES += \
 
 # Boot jars
 PRODUCT_BOOT_JARS += \
-	qcom.fmradio \
 	tcmiface
 
 # BoringSSL Hacks
@@ -133,10 +132,8 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-	FM2 \
-	FMRecord \
-	libqcomfm_jni \
-	qcom.fmradio
+	FMRadio \
+	libfmjni
 
 ADDITIONAL_BUILD_PROPERTIES += \
 	hw.fm.mode=normal
