@@ -187,10 +187,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	lights.msm8916
 
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-	librs_jni
-
 # Default Property Overrides
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp \
