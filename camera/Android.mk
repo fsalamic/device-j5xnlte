@@ -1,5 +1,5 @@
 ifeq ($(TARGET_PROVIDES_CAMERA_HAL),true)
-ifneq ($(filter gprimeltecan gprimeltespr gprimeltetmo gprimeltemtr, $(TARGET_DEVICE)),)
+ifneq ($(filter gprimeltecan gprimeltespr gprimeltetmo gprimeltemtr gprimeltezt, $(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
