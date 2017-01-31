@@ -62,6 +62,7 @@ PRODUCT_PACKAGES += \
 	libqcomvisualizer \
 	libqcomvoiceprocessing \
 	libqcmediaplayer \
+	libtinyalsa \
 	tinymix \
 	tinyplay \
 	tinycap \
