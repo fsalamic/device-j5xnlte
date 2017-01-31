@@ -310,9 +310,7 @@ PRODUCT_PACKAGES += \
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.use_data_netmgrd=false \
-	dalvik.vm.heapgrowthlimit=128m \
 	ro.security.icd.flagmode=single \
-	ro.vendor.extension_library=libqti-perfd-client.so \
 	persist.radio.apm_sim_not_pwdn=1 \
 	persist.radio.sib16_support=1 \
 	persist.gps.qc_nlp_in_use=1 \
