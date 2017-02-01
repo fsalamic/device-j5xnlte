@@ -131,7 +131,7 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_SELINUX_LOG_CONFIG := selinux_log_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/galaxy
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := false
