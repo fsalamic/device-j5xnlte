@@ -55,8 +55,5 @@ TARGET_RIL_VARIANT := caf
 #override to enable audio.
 BOARD_PROVIDES_LIBRIL := false
 
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/gprimelte-common/sepolicy
-
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/gprimelte-common/recovery/fstab.qcom
