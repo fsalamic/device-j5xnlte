@@ -3,9 +3,6 @@
 
 LOCAL_PATH := device/samsung/gprimelte-common
 
-# Inherit from common
--include device/samsung/qcom-common/BoardConfigCommon.mk
-
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Platform
