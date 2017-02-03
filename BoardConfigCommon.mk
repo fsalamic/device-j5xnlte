@@ -26,12 +26,6 @@ CHARGING_ENABLED_PATH           := /sys/class/power_supply/battery/batt_lp_charg
 TARGET_HW_DISK_ENCRYPTION := true
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
-# Kernel
-TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
-TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
-TARGET_KERNEL_SELINUX_LOG_CONFIG := selinux_log_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := false
 
