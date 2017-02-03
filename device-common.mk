@@ -62,10 +62,6 @@ PRODUCT_PACKAGES += \
 # Doze
 PRODUCT_PACKAGES += \
 	SamsungDoze
-	
-# Touch issue workaround
-PRODUCT_PACKAGES += \
-	InputDisabler
 
 # FM
 PRODUCT_PACKAGES += \
