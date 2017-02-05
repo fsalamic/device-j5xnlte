@@ -1,5 +1,5 @@
 LOCAL_PATH := $(call my-dir)
-
+ifneq ($(filter gprimeltecan gprimeltespr gprimeltetmo gprimeltemtr gprimeltezt, $(TARGET_DEVICE)),)
 ######################
 ### init.target.rc
 include $(CLEAR_VARS)
@@ -9,3 +9,4 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := etc/$(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
+endif
