@@ -42,52 +42,6 @@ index 32be300..1114690 100644
      }
      ALOGD("%s success", __func__);
      return fd;
-diff --git a/frameworks/base/core/jni/fd_utils-inl.h b/frameworks/base/core/jni/fd_utils-inl.h
-index f245a7fc..69f9e0b5 100644
---- a/frameworks/base/core/jni/fd_utils-inl.h
-+++ b/frameworks/base/core/jni/fd_utils-inl.h
-@@ -391,13 +391,9 @@ class FileDescriptorTable {
-       }
- 
-       FileDescriptorInfo* info = FileDescriptorInfo::createFromFd(fd);
--      if (info == NULL) {
--        if (closedir(d) == -1) {
--          ALOGE("Unable to close directory : %s", strerror(errno));
--        }
--        return NULL;
-+      if (info != NULL) {
-+        open_fd_map[fd] = info;
-       }
--      open_fd_map[fd] = info;
-     }
- 
-     if (closedir(d) == -1) {
-@@ -425,7 +421,10 @@ class FileDescriptorTable {
-         continue;
-       }
- 
--      open_fds.insert(fd);
-+      FileDescriptorInfo* info = FileDescriptorInfo::createFromFd(fd);
-+      if (info != NULL) {
-+        open_fds.insert(fd);
-+      }
-     }
- 
-     if (closedir(d) == -1) {
-diff --git a/frameworks/base/data/keyboards/Generic.kl b/frameworks/base/data/keyboards/Generic.kl
-index f10ba96..ae84296 100644
---- a/frameworks/base/data/keyboards/Generic.kl
-+++ b/frameworks/base/data/keyboards/Generic.kl
-@@ -247,6 +247,9 @@ key 224   BRIGHTNESS_DOWN
- key 225   BRIGHTNESS_UP
- key 226   HEADSETHOOK
- 
-+# samsung
-+key 254   APP_SWITCH
-+
- key 256   BUTTON_1
- key 257   BUTTON_2
- key 258   BUTTON_3
 diff -ur a/packages/services/Telecomm/src/com/android/server/telecom/CallAudioManager.java b/packages/services/Telecomm/src/com/android/server/telecom/CallAudioManager.java
 --- a/packages/services/Telecomm/src/com/android/server/telecom/CallAudioManager.java	Wed Apr 20 08:50:20 2016
 +++ b/packages/services/Telecomm/src/com/android/server/telecom/CallAudioManager.java	Thu May 12 01:31:40 2016

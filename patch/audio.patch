@@ -1,0 +1,32 @@
+diff --git a/frameworks/base/core/jni/fd_utils-inl.h b/frameworks/base/core/jni/fd_utils-inl.h
+index f245a7fc..69f9e0b5 100644
+--- a/frameworks/base/core/jni/fd_utils-inl.h
++++ b/frameworks/base/core/jni/fd_utils-inl.h
+@@ -435,13 +435,9 @@ class FileDescriptorTable {
+       }
+ 
+       FileDescriptorInfo* info = FileDescriptorInfo::createFromFd(fd);
+-      if (info == NULL) {
+-        if (closedir(d) == -1) {
+-          ALOGE("Unable to close directory : %s", strerror(errno));
+-        }
+-        return NULL;
++      if (info != NULL) {
++        open_fd_map[fd] = info;
+       }
+-      open_fd_map[fd] = info;
+     }
+ 
+     if (closedir(d) == -1) {
+@@ -469,7 +465,10 @@ class FileDescriptorTable {
+         continue;
+       }
+ 
+-      open_fds.insert(fd);
++      FileDescriptorInfo* info = FileDescriptorInfo::createFromFd(fd);
++      if (info != NULL) {
++        open_fds.insert(fd);
++      }
+     }
+ 
+     if (closedir(d) == -1) {
