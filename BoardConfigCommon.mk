@@ -18,8 +18,6 @@ include device/samsung/msm8916-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/samsung/gprimelte-common
 
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
-
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := msm8916
