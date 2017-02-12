@@ -55,6 +55,10 @@ PRODUCT_PACKAGES += \
 	ims-common \
 	voip-common
 
+# Boot jars
+PRODUCT_BOOT_JARS += \
+	qcom.fmradio
+
 # SHIM RIL
 PRODUCT_PACKAGES += \
 	libril_shim
@@ -65,8 +69,10 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-	FMRadio \
-	libfmjni
+	FM2 \
+	FMRecord \
+	libqcomfm_jni \
+	qcom.fmradio
 
 ADDITIONAL_BUILD_PROPERTIES += \
 	hw.fm.mode=normal
