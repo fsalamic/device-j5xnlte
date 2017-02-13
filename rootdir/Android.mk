@@ -1,5 +1,5 @@
 LOCAL_PATH := $(call my-dir)
-ifneq ($(filter gprimeltecan gprimeltespr gprimeltetmo gprimeltemtr gprimeltezt, $(TARGET_DEVICE)),)
+ifneq ($(filter gprimelte gprimeltespr gprimeltezt, $(TARGET_DEVICE)),)
 ######################
 ### init.target.rc
 include $(CLEAR_VARS)
