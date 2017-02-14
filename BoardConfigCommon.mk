@@ -47,6 +47,5 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE   := ext4
 BOARD_FLASH_BLOCK_SIZE              := 131072
 
 # RIL
-TARGET_RIL_VARIANT := caf
-#override to enable audio.
-BOARD_PROVIDES_LIBRIL := false
+# force neither ril nor ril-caf to build
+TARGET_RIL_VARIANT := custom
