@@ -47,5 +47,5 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE   := ext4
 BOARD_FLASH_BLOCK_SIZE              := 131072
 
 # RIL
-# force neither ril nor ril-caf to build
-TARGET_RIL_VARIANT := custom
+TARGET_RIL_VARIANT := caf
+BOARD_PROVIDES_LIBRIL := false

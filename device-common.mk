@@ -25,6 +25,10 @@ LOCAL_PATH := device/samsung/gprimelte-common
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Remove packages
+PRODUCT_PACKAGES += \
+	RemovePackages
+
 #NFC
 PRODUCT_PACKAGES += \
 	Tag \
