@@ -142,8 +142,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.vc_call_vol_steps=15 \
 	ro.config.media_vol_steps=30 \
 	ro.telephony.samsung.realcall=true \
-	cm.updater.uri=http://grandprime.ddns.net/OTA/api \
 	ro.telephony.ril_class=SamsungQcomRIL
+
+# append the updater uri to the product properties if set
+ifneq ($(CM_UPDATER_OTA_URI),)
+	PRODUCT_PROPERTY_OVERRIDES += $(CM_UPDATER_OTA_URI)
+endif
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
