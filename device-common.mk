@@ -101,7 +101,6 @@ PRODUCT_COPY_FILES += \
 
 # Default Property Overrides
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.eons.enabled=true \
 	rild.libpath=/system/lib/libsec-ril.so \
 	persist.radio.lte_vrte_ltd=1 \
 	persist.radio.add_power_save=1 \
