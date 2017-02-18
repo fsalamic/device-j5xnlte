@@ -1,8 +1,0 @@
-#!/system/bin/sh
-
-chmod 0770 /data/nfc
-chown nfc.nfc /data/nfc
-chmod 0770 /data/nfc/param
-chown nfc.nfc /data/nfc/param
-chmod 0660 /dev/sec-nfc
-chown nfc.nfc /dev/sec-nfc
