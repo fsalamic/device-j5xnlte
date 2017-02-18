@@ -81,10 +81,6 @@ PRODUCT_PACKAGES += \
 ADDITIONAL_BUILD_PROPERTIES += \
 	hw.fm.mode=normal
 
-# FM workaround
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilt/enableRadioFM:system/etc/init.d/enableRadioFM
-
 # Ramdisk
 PRODUCT_PACKAGES += \
 	init.target.rc
