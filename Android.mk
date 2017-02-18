@@ -4,7 +4,6 @@ ifneq ($(filter gprimelte gprimeltespr gprimeltetfnvzw gprimeltezt, $(TARGET_DEV
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
-LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_MODULE := RemovePackages
 LOCAL_MODULE_TAGS := optional
