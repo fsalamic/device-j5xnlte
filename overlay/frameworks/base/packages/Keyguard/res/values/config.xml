@@ -1,0 +1,9 @@
+ <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+ 
+     <!-- Threshold in micro amperes below which a charger is rated as "slow" -->
+    <integer name="config_chargingSlowlyThreshold">300</integer>
+
+    <!-- Threshold in micro amperes from which a charger is rated as "fast" -->
+    <integer name="config_chargingFastThreshold">700</integer>
+
+ </resources>
