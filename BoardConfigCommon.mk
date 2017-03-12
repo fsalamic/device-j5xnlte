@@ -18,36 +18,18 @@ include device/samsung/msm8916-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/samsung/gprimelte-common
 
-# Platform
-BOARD_VENDOR := samsung
-TARGET_BOARD_PLATFORM := msm8916
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+
 # Custom RIL class
 BOARD_RIL_CLASS    := ../../../device/samsung/gprimelte-common/ril
 PROTOBUF_SUPPORTED := true
-
-# Charger
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
-CHARGING_ENABLED_PATH           := /sys/class/power_supply/battery/batt_lp_charging
-
-# Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := false
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
-
-# Partition sizes
-BOARD_BOOTIMAGE_PARTITION_SIZE      := 13631488
-BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 15728640
-BOARD_CACHEIMAGE_PARTITION_SIZE     := 314572800
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE   := ext4
-BOARD_FLASH_BLOCK_SIZE              := 131072
 
 # RIL
 TARGET_RIL_VARIANT := caf
