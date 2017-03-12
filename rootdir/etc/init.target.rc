@@ -1,3 +1,0 @@
-on init
-    # Shims
-    export LD_SHIM_LIBS /system/lib/libril.so|libril_shim.so:/system/lib/libcrypto.so|libboringssl-compat.so
