@@ -35,8 +35,7 @@ PRODUCT_PACKAGES += \
 	Tag \
 	com.android.nfc_extras \
 	com.android.nfc.helper \
-	libnfc \
-	libnfc_jni \
+	NfcNci \
 	libnfc_nci \
 	libnfc_nci_jni
 
