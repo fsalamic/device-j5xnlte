@@ -20,6 +20,9 @@ $(call inherit-product, device/samsung/msm8916-common/msm8916.mk)
 
 LOCAL_PATH := device/samsung/gprimelte-common
 
+# System properties
+-include $(LOCAL_PATH)/system_prop.mk
+
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -76,14 +79,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
 	$(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
-# Default Property Overrides
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	rild.libpath=/system/lib/libsec-ril.so \
-	persist.radio.lte_vrte_ltd=1 \
-	persist.radio.add_power_save=1 \
-	camera2.portability.force_api=1 \
-	ro.secure=0
-
 # Audio configurations
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -109,17 +104,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
-
-# Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.use_data_netmgrd=false \
-	persist.radio.sib16_support=1 \
-	ro.gps.agps_provider=1 \
-	ro.pip.gated=0 \
-	ro.config.vc_call_vol_steps=15 \
-	ro.config.media_vol_steps=30 \
-	ro.telephony.samsung.realcall=true \
-	ro.telephony.ril_class=SamsungQcomRIL
 
 # append the updater uri to the product properties if set
 ifneq ($(CM_UPDATER_OTA_URI),)
