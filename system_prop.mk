@@ -15,6 +15,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.add_power_save=1 \
 	persist.radio.sib16_support=1 \
 	rild.libpath=/system/lib/libsec-ril.so \
+	ro.multisim.set_audio_params=true \
 	ro.telephony.samsung.realcall=true \
 	ro.telephony.ril_class=SamsungQcomRIL \
 	ro.use_data_netmgrd=false
