@@ -73,6 +73,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	init.target.rc
 
+# OTA scripts
+ PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/releasetools/copy_variant_blobs.sh:install/bin/copy_variant_blobs.sh \
+	$(LOCAL_PATH)/releasetools/update_baseband.sh:install/bin/update_baseband.sh
+
 # Keylayout
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \

@@ -25,6 +25,9 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_RIL_CLASS    := ../../../device/samsung/gprimelte-common/ril
 PROTOBUF_SUPPORTED := true
 
+# Release Tools
+TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := false
 
