@@ -60,8 +60,11 @@ fi
 
 # update the device name in the prop
 echo "Updating device variant name ..."
+if [ $VARIANT == "can" ] || [ $VARIANT == "tmo" ] || [ $VARIANT == "mtr" ] || [ $VARIANT == "spr" ]; then
 sed -i s/gprimelte/${DEVICE}/g /system/build.prop
-
+elif [ $VARIANT == "fz" ] || [ $VARIANT == "mu" ]; then
+sed -i s/fortunalte/${DEVICE}/g /system/build.prop
+fi
 # remove the device blobs
 echo "Cleaning up ..."
 rm -rf /system/blobs
