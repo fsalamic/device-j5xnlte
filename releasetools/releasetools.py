@@ -25,6 +25,8 @@ def FullOTA_InstallEnd(info):
     info.script.Mount("/system")
     info.script.Print("Copying device variant blobs ...")
     info.script.AppendExtra('assert(run_program("/tmp/install/bin/copy_variant_blobs.sh") == 0);')
+    info.script.Print("Copying nfc files ...")
+    info.script.AppendExtra('assert(run_program("/tmp/install/bin/copy_nfc_configs.sh") == 0);')
     info.script.Print("Flashing baseband...")
     info.script.AppendExtra('assert(run_program("/tmp/install/bin/update_baseband.sh") == 0);')
     info.script.Unmount("/system")
