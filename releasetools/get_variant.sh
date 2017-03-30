@@ -18,30 +18,16 @@
 # Detect variant and copy its specific-blobs
 BOOTLOADER=`getprop ro.bootloader`
 
-# get variant
-VARIANT=$(/tmp/install/bin/get_variant.sh)
+case $BOOTLOADER in
+  G530FZ*)     VARIANT="xx" ;;
+  G530MUU*)    VARIANT="zt" ;;
+  G530P*)      VARIANT="spr" ;;
+  G530T1*)     VARIANT="mtr" ;;
+  G530T*)      VARIANT="tmo" ;;
+  G530W*)      VARIANT="can" ;;
+  S920L*)      VARIANT="tfnvzw" ;;
+  *)           VARIANT="unknown" ;;
+esac
 
-# exit if the device is unknown
-if [ $VARIANT == "unknown" ]; then
-	exit 1
-fi
-
-RADIO_DIR=/system/RADIO/$VARIANT
-BLOCK_DEV_DIR=/dev/block/bootdevice/by-name
-
-if [ -d ${RADIO_DIR} ]; then
-
-	cd ${RADIO_DIR} 
-
-	# flash the firmware
-	for FILE in `find . -type f` ; do
-		echo "Flashing ${FILE} to ${BLOCK_DEV_DIR}/${FILE} ..."
-		dd if=${FILE} of=${BLOCK_DEV_DIR}/${FILE}
-	done
-fi
-
-# remove the device blobs
-echo "Cleaning up ..."
-rm -rf /system/RADIO
-
+echo "$VARIANT"
 exit 0

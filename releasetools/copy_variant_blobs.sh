@@ -18,18 +18,8 @@
 # Detect variant and copy its specific-blobs
 BOOTLOADER=`getprop ro.bootloader`
 
-case $BOOTLOADER in
-  G530FZ*)     VARIANT="fz" ;;
-  G530MUU*)    VARIANT="mu" ;;
-  G530P*)      VARIANT="spr" ;;
-  G530T1*)     VARIANT="mtr" ;;
-  G530T*)      VARIANT="tmo" ;;
-  G530W*)      VARIANT="can" ;;
-  S920L*)      VARIANT="tfnvzw" ;;
-  *)           VARIANT="unknown" ;;
-esac
-
-echo "Device variant is $VARIANT"
+# get device variant
+VARIANT=$(/tmp/install/bin/get_variant.sh)
 
 # exit if the device is unknown
 if [ $VARIANT == "unknown" ]; then
@@ -62,7 +52,7 @@ fi
 echo "Updating device variant name ..."
 if [ $VARIANT == "can" ] || [ $VARIANT == "tmo" ] || [ $VARIANT == "mtr" ] || [ $VARIANT == "spr" ]; then
 sed -i s/gprimelte/${DEVICE}/g /system/build.prop
-elif [ $VARIANT == "fz" ] || [ $VARIANT == "mu" ]; then
+elif [ $VARIANT == "xx" ] || [ $VARIANT == "zt" ]; then
 sed -i s/fortunalte/${DEVICE}/g /system/build.prop
 fi
 # remove the device blobs

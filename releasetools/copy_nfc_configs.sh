@@ -18,20 +18,10 @@
 # Detect variant and copy its specific-blobs
 BOOTLOADER=`getprop ro.bootloader`
 
-case $BOOTLOADER in
-  G530FZ*)     VARIANT="fz" ;;
-  G530MUU*)    VARIANT="mu" ;;
-  G530P*)      VARIANT="spr" ;;
-  G530T1*)     VARIANT="mtr" ;;
-  G530T*)      VARIANT="tmo" ;;
-  G530W*)      VARIANT="can" ;;
-  S920L*)      VARIANT="tfnvzw" ;;
-  *)           VARIANT="unknown" ;;
-esac
+# get device variant
+VARIANT=$(/tmp/install/bin/get_variant.sh)
 
-echo "Device variant is $VARIANT"
-
-if [ $VARIANT == "mu" ] || [ $VARIANT == "tfnvzw" ]; then
+if [ $VARIANT == "zt" ] || [ $VARIANT == "tfnvzw" ]; then
 	mv /system/etc/libnfc-sec-hal-pn547.conf /system/etc/libnfc-sec-hal.conf
 else
 	mv /system/etc/libnfc-sec.conf /system/etc/libnfc-brcm.conf
