@@ -23,6 +23,8 @@ def FullOTA_InstallEnd(info):
 
     info.script.Print("Mounting /system...")
     info.script.Mount("/system")
+    info.script.Print("Updating device variant name...")
+    info.script.AppendExtra('assert(run_program("/tmp/install/bin/update_device_name.sh") == 0);')
     info.script.Print("Copying device variant blobs ...")
     info.script.AppendExtra('assert(run_program("/tmp/install/bin/copy_variant_blobs.sh") == 0);')
     info.script.Print("Copying nfc files ...")

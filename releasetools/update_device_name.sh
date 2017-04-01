@@ -23,28 +23,11 @@ if [ $VARIANT == "unknown" ]; then
 	exit 1
 fi
 
-BLOBBASE=/system/blobs/$VARIANT
+DEVICE="gprimelte${VARIANT}"
 
-if [ -d $BLOBBASE ]; then
-
-	cd $BLOBBASE
-
-	# copy all the blobs
-	for FILE in `find . -type f` ; do
-		mkdir -p `dirname /system/$FILE`
-		echo "Copying $FILE to /system/$FILE ..."
-		cp $FILE /system/$FILE
-	done
-
-	# set permissions on binary files
-	for FILE in bin/* ; do
-		echo "Setting /system/$FILE executable ..."
-		chmod 755 /system/$FILE
-	done
-fi
-
-# remove the device blobs
-echo "Cleaning up ..."
-rm -rf /system/blobs
+# update the device name in the prop
+echo "Updating device variant name ..."
+sed -i s/gprimelte[a-z]*/${DEVICE}/g /system/build.prop
+sed -i s/fortunalte[a-z]*/${DEVICE}/g /system/build.prop
 
 exit 0
