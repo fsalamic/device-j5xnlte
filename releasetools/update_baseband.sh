@@ -15,10 +15,7 @@
 # limitations under the License.
 #
 
-# Detect variant and copy its specific-blobs
-BOOTLOADER=`getprop ro.bootloader`
-
-# get variant
+# Detect variant
 VARIANT=$(/tmp/install/bin/get_variant.sh)
 
 # exit if the device is unknown

@@ -16,9 +16,6 @@
 #
 
 # Detect variant and copy its specific-blobs
-BOOTLOADER=`getprop ro.bootloader`
-
-# get device variant
 VARIANT=$(/tmp/install/bin/get_variant.sh)
 
 if [ $VARIANT == "zt" ] || [ $VARIANT == "tfnvzw" ]; then

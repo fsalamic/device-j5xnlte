@@ -39,5 +39,5 @@ def FullOTA_PostValidate(info):
     info.script.Print("Resizing /system to maximal size...")
     info.script.AppendExtra('run_program("/sbin/resize2fs", "-p", "/dev/block/bootdevice/by-name/system");')
     # run e2fsck
-    info.script.Print("Checking the file system on /system again after resize...")
+    info.script.Print("Checking the file system on /system after resize...")
     info.script.AppendExtra('run_program("/sbin/e2fsck", "-fy", "/dev/block/bootdevice/by-name/system");')

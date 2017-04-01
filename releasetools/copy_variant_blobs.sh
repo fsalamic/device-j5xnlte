@@ -16,9 +16,6 @@
 #
 
 # Detect variant and copy its specific-blobs
-BOOTLOADER=`getprop ro.bootloader`
-
-# get device variant
 VARIANT=$(/tmp/install/bin/get_variant.sh)
 
 # exit if the device is unknown
@@ -51,9 +48,9 @@ fi
 # update the device name in the prop
 echo "Updating device variant name ..."
 if [ $VARIANT == "can" ] || [ $VARIANT == "tmo" ] || [ $VARIANT == "mtr" ] || [ $VARIANT == "spr" ]; then
-sed -i s/gprimelte/${DEVICE}/g /system/build.prop
+	sed -i s/gprimelte/${DEVICE}/g /system/build.prop
 elif [ $VARIANT == "xx" ] || [ $VARIANT == "zt" ]; then
-sed -i s/fortunalte/${DEVICE}/g /system/build.prop
+	sed -i s/fortunalte/${DEVICE}/g /system/build.prop
 fi
 # remove the device blobs
 echo "Cleaning up ..."
