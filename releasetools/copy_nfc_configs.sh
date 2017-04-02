@@ -19,10 +19,13 @@
 VARIANT=$(/tmp/install/bin/get_variant.sh)
 
 if [ $VARIANT == "zt" ] || [ $VARIANT == "tfnvzw" ]; then
-	mv /system/etc/libnfc-sec-hal-pn547.conf /system/etc/libnfc-sec-hal.conf
+	rm /system/lib/hw/nfc_nci.msm8916.so
+	rm /system/etc/libnfc-sec.conf
+	rm /system/etc/libnfc-sec-hal.conf
 else
 	mv /system/etc/libnfc-sec.conf /system/etc/libnfc-brcm.conf
-	mv /system/etc/libnfc-sec-hal-sec.conf /system/etc/libnfc-sec-hal.conf
+	rm /system/etc/libnfc-nxp.conf
+	rm /system/lib/hw/nfc_nci.pn54x.msm8916.so
 fi
 
 exit 0
