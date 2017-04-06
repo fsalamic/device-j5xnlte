@@ -26,33 +26,33 @@ import android.os.Parcel;
 import android.os.SystemProperties;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SignalStrength;
+import com.android.internal.telephony.cdma.CdmaInformationRecords;
+import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaSignalInfoRec;
+import com.android.internal.telephony.cdma.SignalToneUtil;
 import com.android.internal.telephony.uicc.IccCardApplicationStatus;
 import com.android.internal.telephony.uicc.IccCardStatus;
 import java.util.ArrayList;
 import java.util.Collections;
-import android.media.AudioManager;
 
 /**
- * Qualcomm RIL for Samsung MSM8916 (3G) devices
+ * Qualcomm RIL Customisation for Samsung MSM8916 (GSM/CDMA) LTE devices
+ *
  * {@hide}
  */
 public class SamsungQcomRIL extends RIL {
 
-    private static final int RIL_REQUEST_DIAL_EMERGENCY = 10001;
     private static final int RIL_UNSOL_ON_SS_LL = 11055;
 
-    private AudioManager mAudioManager;
+    private boolean mIsGsm = false;
 
     public SamsungQcomRIL(Context context, int networkMode, int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription, null);
-        mAudioManager = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
         mQANElements = 6;
     }
 
     public SamsungQcomRIL(Context context, int preferredNetworkType,
             int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
-        mAudioManager = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
         mQANElements = 6;
     }
 
@@ -106,8 +106,11 @@ public class SamsungQcomRIL extends RIL {
         }
         cardStatus.mApplications = new IccCardApplicationStatus[numApplications];
 
+        appStatus = new IccCardApplicationStatus();
         for (int i = 0 ; i < numApplications ; i++) {
-            appStatus = new IccCardApplicationStatus();
+            if (i!=0) {
+                appStatus = new IccCardApplicationStatus();
+            }
             appStatus.app_type       = appStatus.AppTypeFromRILInt(p.readInt());
             appStatus.app_state      = appStatus.AppStateFromRILInt(p.readInt());
             appStatus.perso_substate = appStatus.PersoSubstateFromRILInt(p.readInt());
@@ -121,8 +124,37 @@ public class SamsungQcomRIL extends RIL {
             p.readInt(); // pin2_num_retries
             p.readInt(); // puk2_num_retries
             p.readInt(); // perso_unblock_retries
-
             cardStatus.mApplications[i] = appStatus;
+        }
+        // For Sprint LTE only SIM
+        if (numApplications==1 && !mIsGsm && appStatus.app_type == appStatus.AppTypeFromRILInt(2)) {
+            cardStatus.mApplications = new IccCardApplicationStatus[numApplications+2];
+            cardStatus.mGsmUmtsSubscriptionAppIndex = 0;
+            cardStatus.mApplications[cardStatus.mGsmUmtsSubscriptionAppIndex]=appStatus;
+            cardStatus.mCdmaSubscriptionAppIndex = 1;
+            cardStatus.mImsSubscriptionAppIndex = 2;
+
+            IccCardApplicationStatus appStatus2 = new IccCardApplicationStatus();
+            appStatus2.app_type       = appStatus2.AppTypeFromRILInt(4); // csim state
+            appStatus2.app_state      = appStatus.app_state;
+            appStatus2.perso_substate = appStatus.perso_substate;
+            appStatus2.aid            = appStatus.aid;
+            appStatus2.app_label      = appStatus.app_label;
+            appStatus2.pin1_replaced  = appStatus.pin1_replaced;
+            appStatus2.pin1           = appStatus.pin1;
+            appStatus2.pin2           = appStatus.pin2;
+            cardStatus.mApplications[cardStatus.mCdmaSubscriptionAppIndex] = appStatus2;
+
+            IccCardApplicationStatus appStatus3 = new IccCardApplicationStatus();
+            appStatus3.app_type       = appStatus3.AppTypeFromRILInt(5); // ims state
+            appStatus3.app_state      = appStatus.app_state;
+            appStatus3.perso_substate = appStatus.perso_substate;
+            appStatus3.aid            = appStatus.aid;
+            appStatus3.app_label      = appStatus.app_label;
+            appStatus3.pin1_replaced  = appStatus.pin1_replaced;
+            appStatus3.pin1           = appStatus.pin1;
+            appStatus3.pin2           = appStatus.pin2;
+            cardStatus.mApplications[cardStatus.mImsSubscriptionAppIndex] = appStatus3;
         }
         return cardStatus;
     }
@@ -153,8 +185,7 @@ public class SamsungQcomRIL extends RIL {
             dc.isMT = (0 != p.readInt());
             dc.als = p.readInt();
             voiceSettings = p.readInt();
-            dc.isVoice = (0 == voiceSettings) ? false : true;
-            boolean isVideo;
+            dc.isVoice = (0 != voiceSettings);
             int call_type = p.readInt();            // Samsung CallDetails
             int call_domain = p.readInt();          // Samsung CallDetails
             String csv = p.readString();            // Samsung CallDetails
@@ -210,45 +241,48 @@ public class SamsungQcomRIL extends RIL {
     }
 
     @Override
-    protected Object
-    responseSignalStrength(Parcel p) {
-        int gsmSignalStrength = p.readInt() & 0xff;
-        int gsmBitErrorRate = p.readInt();
-        int cdmaDbm = p.readInt();
-        int cdmaEcio = p.readInt();
-        int evdoDbm = p.readInt();
-        int evdoEcio = p.readInt();
-        int evdoSnr = p.readInt();
-        int lteSignalStrength = p.readInt();
-        int lteRsrp = p.readInt();
-        int lteRsrq = p.readInt();
-        int lteRssnr = p.readInt();
-        int lteCqi = p.readInt();
-        int tdScdmaRscp = p.readInt();
-        // constructor sets default true, makeSignalStrengthFromRilParcel does not set it
-  	boolean isGsm = true;
+    protected Object responseSignalStrength(Parcel p) {
+        int numInts = 12;
+        int response[];
 
-        if ((lteSignalStrength & 0xff) == 255 || lteSignalStrength == 99) {
-            lteSignalStrength = 99;
-            lteRsrp = SignalStrength.INVALID;
-            lteRsrq = SignalStrength.INVALID;
-            lteRssnr = SignalStrength.INVALID;
-            lteCqi = SignalStrength.INVALID;
-        } else {
-            lteSignalStrength &= 0xff;
+        // Get raw data
+        response = new int[numInts];
+        for (int i = 0; i < numInts; i++) {
+            response[i] = p.readInt();
         }
+        //gsm
+        response[0] &= 0xff; //gsmSignalStrength
+        //cdma
+        response[2] %= 256; //cdmaDbm
+        response[4] %= 256; //evdoDbm
+        response[7] &= 0xff; //lteSignalStrength
 
-        if (RILJ_LOGD)
-            riljLog("gsmSignalStrength:" + gsmSignalStrength + " gsmBitErrorRate:" + gsmBitErrorRate +
-                    " cdmaDbm:" + cdmaDbm + " cdmaEcio:" + cdmaEcio + " evdoDbm:" + evdoDbm +
-                    " evdoEcio: " + evdoEcio + " evdoSnr:" + evdoSnr +
-                    " lteSignalStrength:" + lteSignalStrength + " lteRsrp:" + lteRsrp +
-                    " lteRsrq:" + lteRsrq + " lteRssnr:" + lteRssnr + " lteCqi:" + lteCqi +
-                    " tdScdmaRscp:" + tdScdmaRscp + " isGsm:" + (isGsm ? "true" : "false"));
+        return new SignalStrength(response[0], response[1], response[2], response[3], response[4], response[5], response[6], response[7], response[8], response[9], response[10], response[11], true);
 
-        return new SignalStrength(gsmSignalStrength, gsmBitErrorRate, cdmaDbm, cdmaEcio, evdoDbm,
-                evdoEcio, evdoSnr, lteSignalStrength, lteRsrp, lteRsrq, lteRssnr, lteCqi,
-                tdScdmaRscp, isGsm);
+    }
+
+    @Override
+    protected void notifyRegistrantsCdmaInfoRec(CdmaInformationRecords infoRec) {
+        final int response = RIL_UNSOL_CDMA_INFO_REC;
+
+        if (infoRec.record instanceof CdmaSignalInfoRec) {
+            CdmaSignalInfoRec rec = (CdmaSignalInfoRec) infoRec.record;
+            if (rec != null
+                    && rec.isPresent
+                    && rec.signalType == SignalToneUtil.IS95_CONST_IR_SIGNAL_IS54B
+                    && rec.alertPitch == SignalToneUtil.IS95_CONST_IR_ALERT_MED
+                    && rec.signal == SignalToneUtil.IS95_CONST_IR_SIG_IS54B_L) {
+                /* Drop record, otherwise IS95_CONST_IR_SIG_IS54B_L tone will
+                 * continue to play after the call is connected */
+                return;
+            }
+        }
+        super.notifyRegistrantsCdmaInfoRec(infoRec);
+    }
+
+    @Override
+    public void setPhoneType(int phoneType) {
+        super.setPhoneType(phoneType);
     }
 
     @Override
