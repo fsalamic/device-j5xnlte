@@ -9,8 +9,8 @@ index f245a7fc..69f9e0b5 100644
 +    struct stat sock_stat;
 +    int stat_success = 1;
 +
-+    if (fstat(fd, &stat)) {
-+	    ALOGE("Failed to stat AF_UNIX socket (fd=%d)", fd);
++    if (fstat(fd, &sock_stat)) {
++	    ALOGE("Failed to stat socket (fd=%d)", fd);
 +            stat_success = 0;
 +    }
 +
@@ -21,7 +21,7 @@ index f245a7fc..69f9e0b5 100644
  
      if (addr->sa_family != AF_UNIX) {
        ALOGE("Unsupported socket (fd=%d) with family %d", fd, addr->sa_family);
-+      if (stat_success) ALOGE("Unsupported AF_UNIX socket (fd=%d) with inode %d", fd, sock_stat.st_ino);
++      if (stat_success) ALOGE("Unsupported socket (fd=%d) with inode %d", fd, sock_stat.st_ino);
        return false;
      }
  
