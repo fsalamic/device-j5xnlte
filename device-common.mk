@@ -97,12 +97,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/releasetools/update_baseband.sh:install/bin/update_baseband.sh \
 	$(LOCAL_PATH)/releasetools/update_device_name.sh:install/bin/update_device_name.sh
 
-# Keylayout
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \
-	$(LOCAL_PATH)/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
-	$(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
-
 # Audio configurations
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
