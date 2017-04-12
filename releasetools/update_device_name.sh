@@ -27,6 +27,6 @@ DEVICE="j5${VARIANT}"
 
 # update the device name in the prop
 echo "Updating device variant name ..."
-sed -i s/j5[a-z]*/${DEVICE}/g /system/build.prop
+sed -i s/j5[a-z0-9]*/${DEVICE}/g /system/build.prop
 
 exit 0
