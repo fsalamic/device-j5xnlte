@@ -18,14 +18,11 @@
 # Detect variant and copy its specific-blobs
 VARIANT=$(/tmp/install/bin/get_variant.sh)
 
-if [ $VARIANT == "zt" ] || [ $VARIANT == "tfnvzw" ]; then
-	rm /system/lib/hw/nfc_nci.msm8916.so
-	rm /system/etc/libnfc-sec.conf
-	rm /system/etc/libnfc-sec-hal.conf
-else
-	mv /system/etc/libnfc-sec.conf /system/etc/libnfc-brcm.conf
-	rm /system/etc/libnfc-nxp.conf
-	rm /system/lib/hw/nfc_nci.pn54x.msm8916.so
+if [ $VARIANT == "3gxx" ]; then
+	rm /system/lib/hw/nfc*.so
+	rm /system/etc/libnfc*.conf
+	rm -rf /system/priv-app/*Nfc*
+	rm -rf /system/app/*Nfc*
 fi
 
 exit 0

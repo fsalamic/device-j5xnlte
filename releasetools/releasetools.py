@@ -17,7 +17,7 @@ import common
 import re
 import os
 
-"""Custom OTA commands for gprimelte devices"""
+"""Custom OTA commands for j5 devices"""
 
 def FullOTA_InstallEnd(info):
 

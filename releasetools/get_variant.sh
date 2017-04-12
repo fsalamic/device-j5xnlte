@@ -19,13 +19,7 @@
 BOOTLOADER=`getprop ro.bootloader`
 
 case $BOOTLOADER in
-  G530FZ*)     VARIANT="xx" ;;
-  G530MUU*)    VARIANT="zt" ;;
-  G530P*)      VARIANT="spr" ;;
-  G530T1*)     VARIANT="mtr" ;;
-  G530T*)      VARIANT="tmo" ;;
-  G530W*)      VARIANT="can" ;;
-  S920L*)      VARIANT="tfnvzw" ;;
+  J500H*)     VARIANT="3gxx" ;;
   *)           VARIANT="unknown" ;;
 esac
 

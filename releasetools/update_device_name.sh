@@ -23,11 +23,10 @@ if [ $VARIANT == "unknown" ]; then
 	exit 1
 fi
 
-DEVICE="gprimelte${VARIANT}"
+DEVICE="j5${VARIANT}"
 
 # update the device name in the prop
 echo "Updating device variant name ..."
-sed -i s/gprimelte[a-z]*/${DEVICE}/g /system/build.prop
-sed -i s/fortunalte[a-z]*/${DEVICE}/g /system/build.prop
+sed -i s/j5[a-z]*/${DEVICE}/g /system/build.prop
 
 exit 0

@@ -1,6 +1,6 @@
-# android_device_samsung_gprimelte-common
+# android_device_samsung_j5-common
 
-## Common device tree for Samsung Galaxy Grand Prime LTE devices
+## Common device tree for Samsung J5 devices
 
 Basic   | Spec Sheet
 -------:|:-------------------------
@@ -13,6 +13,6 @@ Storage | 8 GB
 MicroSD | Up to 64 GB
 Battery | 2600 mAh (removable)
 Dimensions | 144.8 x 72.1 x 8.6 mm
-Display | 540 x 960 (qHD), 5.0" (126.4mm)
-Rear Camera  | 8.0 MP, LED flash, S.LSI. S5K4H5YB/ IMX219
+Display | 720 x 1280 (qHD), 5.6" (142.1mm)
+Rear Camera  | 8.0 MP, LED flash, S.LSI. S5K4H5YB/IMX219
 Front Camera | 5.0 MP, S.LSI. S5K5E3YX
