@@ -1,7 +1,12 @@
 # Radio
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	persist.radio.apm_sim_not_pwdn=1 \
+	persist.radio.add_power_save=1 \
+	persist.radio.lte_vrte_ltd=1
+
+# Screen
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.radio.jbims=1 \
-	persist.radio.no_wait_for_card=1
+	ro.sf.lcd_density=320
 
 # Volume
 PRODUCT_PROPERTY_OVERRIDES += \
