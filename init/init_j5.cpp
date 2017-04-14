@@ -53,6 +53,12 @@ void cdma_properties(char const *operator_alpha,
 	property_set("telephony.lteOnCdmaDevice", "1");
 }
 
+void gsm_lte_properties(char const * default_network)
+{
+	property_set("persist.radio.lte_vrte_ltd", "1");
+	property_set("telephony.lteOnCdmaDevice", "0");
+	property_set("ro.telephony.default_network", default_network);
+}
 
 void init_target_properties(void)
 {
@@ -62,8 +68,23 @@ void init_target_properties(void)
 	/* get the bootloader string */
 	property_get("ro.bootloader", bootloader);
 
-
-	if (strstr(bootloader,"J500H")) {
+	if (strstr(bootloader,"J500FN")) {
+		property_set("ro.build.product", "j5nlte");
+		property_set("ro.build.description", "lineage_j5nlte-userdebug 7.1.1 NMF26V 4dae919457 test-keys");
+		property_set("ro.build.fingerprint", "samsung/lineage_j5nlte/j5nlte:7.1.1/NMF26V/4dae919457:userdebug/test-keys");
+		property_set("ro.product.device", "j5nlte");
+		property_set("ro.product.model", "SM-J500FN");
+		gsm_lte_properties("10");
+	}
+	else if (strstr(bootloader,"J500F")) {
+		property_set("ro.build.product", "j5lte");
+		property_set("ro.build.description", "lineage_j5lte-userdebug 7.1.1 NMF26V 4dae919457 test-keys");
+		property_set("ro.build.fingerprint", "samsung/lineage_j5lte/j5lte:7.1.1/NMF26V/4dae919457:userdebug/test-keys");
+		property_set("ro.product.device", "j5lte");
+		property_set("ro.product.model", "SM-J500F");
+		gsm_lte_properties("10");
+	}
+	else if (strstr(bootloader,"J500H")) {
 		property_set("ro.build.product", "j53gxx");
 		property_set("ro.build.description", "lineage_j53gxx-userdebug 6.0.1 MOB31K 4dae919457 test-keys");
 		property_set("ro.build.fingerprint", "samsung/lineage_j53gxx/j5xx:6.0.1/MOB31K/4dae919457:userdebug/test-keys");
