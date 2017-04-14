@@ -69,18 +69,18 @@ void init_target_properties(void)
 	property_get("ro.bootloader", bootloader);
 
 	if (strstr(bootloader,"J500FN")) {
-		property_set("ro.build.product", "j5nlte");
-		property_set("ro.build.description", "lineage_j5nlte-userdebug 7.1.1 NMF26V 4dae919457 test-keys");
-		property_set("ro.build.fingerprint", "samsung/lineage_j5nlte/j5nlte:7.1.1/NMF26V/4dae919457:userdebug/test-keys");
-		property_set("ro.product.device", "j5nlte");
+		property_set("ro.build.product", "j5nltexx");
+		property_set("ro.build.description", "lineage_j5nltexx-userdebug 7.1.1 NMF26V 4dae919457 test-keys");
+		property_set("ro.build.fingerprint", "samsung/lineage_j5nltexx/j5nltexx:7.1.1/NMF26V/4dae919457:userdebug/test-keys");
+		property_set("ro.product.device", "j5nltexx");
 		property_set("ro.product.model", "SM-J500FN");
 		gsm_lte_properties("10");
 	}
 	else if (strstr(bootloader,"J500F")) {
-		property_set("ro.build.product", "j5lte");
-		property_set("ro.build.description", "lineage_j5lte-userdebug 7.1.1 NMF26V 4dae919457 test-keys");
-		property_set("ro.build.fingerprint", "samsung/lineage_j5lte/j5lte:7.1.1/NMF26V/4dae919457:userdebug/test-keys");
-		property_set("ro.product.device", "j5lte");
+		property_set("ro.build.product", "j5ltexx");
+		property_set("ro.build.description", "lineage_j5ltexx-userdebug 7.1.1 NMF26V 4dae919457 test-keys");
+		property_set("ro.build.fingerprint", "samsung/lineage_j5ltexx/j5ltexx:7.1.1/NMF26V/4dae919457:userdebug/test-keys");
+		property_set("ro.product.device", "j5ltexx");
 		property_set("ro.product.model", "SM-J500F");
 		gsm_lte_properties("10");
 	}

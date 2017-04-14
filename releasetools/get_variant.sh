@@ -19,8 +19,8 @@
 BOOTLOADER=`getprop ro.bootloader`
 
 case $BOOTLOADER in
-  J500FN*)    VARIANT="nlte" ;;
-  J500F*)     VARIANT="lte" ;;
+  J500FN*)    VARIANT="nltexx" ;;
+  J500F*)     VARIANT="ltexx" ;;
   J500H*)     VARIANT="3gxx" ;;
   *)          VARIANT="unknown" ;;
 esac

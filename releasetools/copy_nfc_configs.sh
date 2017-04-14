@@ -18,7 +18,7 @@
 # Detect variant and copy its specific-blobs
 VARIANT=$(/tmp/install/bin/get_variant.sh)
 
-if [ $VARIANT == "nlte" ]; then
+if [ $VARIANT == "nltexx" ]; then
 	rm /system/lib/hw/nfc_nci.msm8916.so
 	rm /system/etc/libnfc-sec.conf
 	rm /system/etc/libnfc-sec-hal.conf
