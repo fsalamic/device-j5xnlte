@@ -19,8 +19,18 @@ import os
 
 """Custom OTA commands for j5 devices"""
 
-def FullOTA_InstallEnd(info):
+def FullOTA_InstallBegin(info):
+    info.script.AppendExtra('ifelse(is_mounted("/system"), unmount("/system"));')
+    info.script.Print("Mounting /system...")
+    info.script.Mount("/system")
+    info.script.Print("Checking SDK version...")
+    info.script.AppendExtra('package_extract_file("install/bin/check_sdk_version.sh", "/tmp/check_sdk_version.sh");')
+    info.script.AppendExtra('rename("/tmp/check_sdk_version.sh", "/tmp/install/bin/check_sdk_version.sh");')
+    info.script.AppendExtra('set_metadata("/tmp/install/bin/check_sdk_version.sh", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755);')
+    info.script.AppendExtra('ifelse((run_program("/tmp/install/bin/check_sdk_version.sh") != 0), abort("Refusing to downgrade system. Wipe data and system first or install proper package."));')
+    info.script.Unmount("/system")
 
+def FullOTA_InstallEnd(info):
     info.script.Print("Mounting /system...")
     info.script.Mount("/system")
     info.script.Print("Updating device variant name...")
