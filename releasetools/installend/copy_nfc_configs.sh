@@ -16,35 +16,17 @@
 #
 
 # Detect variant and copy its specific-blobs
-VARIANT=$(/tmp/install/bin/get_variant.sh)
+. /tmp/install/bin/variant_hook.sh
 
-# exit if the device is unknown
-if [ $VARIANT == "unknown" ]; then
-	exit 1
+# Mount /system
+mount_fs system
+
+if [ $VARIANT == "nltexx" ]; then
+	rm /system/lib/hw/nfc_nci.msm8916.so
+	rm /system/etc/libnfc-sec.conf
+	rm /system/etc/libnfc-sec-hal.conf
+else
+	rm /system/etc/libnfc*.conf
+	rm -rf /system/priv-app/*Nfc*
+	rm -rf /system/app/*Nfc*
 fi
-
-BLOBBASE=/system/blobs/$VARIANT
-
-if [ -d $BLOBBASE ]; then
-
-	cd $BLOBBASE
-
-	# copy all the blobs
-	for FILE in `find . -type f` ; do
-		mkdir -p `dirname /system/$FILE`
-		echo "Copying $FILE to /system/$FILE ..."
-		cp $FILE /system/$FILE
-	done
-
-	# set permissions on binary files
-	for FILE in bin/* ; do
-		echo "Setting /system/$FILE executable ..."
-		chmod 755 /system/$FILE
-	done
-fi
-
-# remove the device blobs
-echo "Cleaning up ..."
-rm -rf /system/blobs
-
-exit 0

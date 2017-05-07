@@ -16,17 +16,14 @@
 #
 
 # Detect variant and copy its specific-blobs
-VARIANT=$(/tmp/install/bin/get_variant.sh)
-
-# exit if the device is unknown
-if [ $VARIANT == "unknown" ]; then
-	exit 1
-fi
+. /tmp/install/bin/variant_hook.sh
 
 DEVICE="j5${VARIANT}"
 
-# update the device name in the prop
-echo "Updating device variant name ..."
-sed -i s/j5[a-z0-9]*/${DEVICE}/g /system/build.prop
+# Mount /system
+mount_fs system
 
-exit 0
+# update the device name in the prop
+ui_print "Device variant is $DEVICE"
+ui_print "Updating device variant name ..."
+sed -i s/j5[a-z0-9]*/${DEVICE}/g /system/build.prop

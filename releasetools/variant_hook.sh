@@ -16,16 +16,17 @@
 #
 
 # Detect variant and copy its specific-blobs
-VARIANT=$(/tmp/install/bin/get_variant.sh)
+BOOTLOADER=`getprop ro.bootloader`
 
-if [ $VARIANT == "nltexx" ]; then
-	rm /system/lib/hw/nfc_nci.msm8916.so
-	rm /system/etc/libnfc-sec.conf
-	rm /system/etc/libnfc-sec-hal.conf
-else
-	rm /system/etc/libnfc*.conf
-	rm -rf /system/priv-app/*Nfc*
-	rm -rf /system/app/*Nfc*
+case $BOOTLOADER in
+  J500FN*)    VARIANT="nltexx" ;;
+  J500F*)     VARIANT="ltexx" ;;
+  J500H*)     VARIANT="3gxx" ;;
+  *)          VARIANT="unknown" ;;
+esac
+
+# exit if the device is unknown
+if [ $VARIANT == "unknown" ]; then
+	ui_print "Unknown device variant detected. Aborting..."
+	exit 1
 fi
-
-exit 0

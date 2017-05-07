@@ -16,14 +16,31 @@
 #
 
 # Detect variant and copy its specific-blobs
-BOOTLOADER=`getprop ro.bootloader`
+. /tmp/install/bin/variant_hook.sh
 
-case $BOOTLOADER in
-  J500FN*)    VARIANT="nltexx" ;;
-  J500F*)     VARIANT="ltexx" ;;
-  J500H*)     VARIANT="3gxx" ;;
-  *)          VARIANT="unknown" ;;
-esac
+BLOBBASE=/system/blobs/$VARIANT
 
-echo "$VARIANT"
-exit 0
+# Mount /system
+mount_fs system
+
+if [ -d $BLOBBASE ]; then
+
+	cd $BLOBBASE
+
+	# copy all the blobs
+	for FILE in `find . -type f | cut -c 3-` ; do
+		mkdir -p `dirname /system/$FILE`
+		ui_print "Copying $FILE to /system/$FILE ..."
+		cp $FILE /system/$FILE
+	done
+
+	# set permissions on binary files
+	for FILE in bin/* ; do
+		ui_print "Setting /system/$FILE executable ..."
+		chmod 755 /system/$FILE
+	done
+fi
+
+# remove the device blobs
+ui_print "Cleaning up ..."
+rm -rf /system/blobs
