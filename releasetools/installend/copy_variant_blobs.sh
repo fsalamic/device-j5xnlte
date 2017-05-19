@@ -29,18 +29,26 @@ if [ -d $BLOBBASE ]; then
 
 	# copy all the blobs
 	for FILE in `find . -type f | cut -c 3-` ; do
+		ui_print
+		SECURITY_LABEL=`ls /system/$FILE -laZ | grep -o 'u:object_r:[a-zA-Z0-9_\-]*:s0'`
 		mkdir -p `dirname /system/$FILE`
 		ui_print "Copying $FILE to /system/$FILE ..."
 		cp $FILE /system/$FILE
+		if [ -n "$SECURITY_LABEL" ]; then
+			ui_print "Setting label $SECURITY_LABEL for /system/$FILE ..."
+			chcon $SECURITY_LABEL /system/$FILE
+		fi
 	done
 
 	# set permissions on binary files
-	for FILE in bin/* ; do
+	for FILE in `find ./bin -type f | cut -c 3-` ; do
+		ui_print
 		ui_print "Setting /system/$FILE executable ..."
 		chmod 755 /system/$FILE
 	done
 fi
 
+umount_fs system
 # remove the device blobs
 ui_print "Cleaning up ..."
 rm -rf /system/blobs
