@@ -100,11 +100,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/releasetools/installend/update_baseband.sh:install/bin/installend/update_baseband.sh \
 	$(LOCAL_PATH)/releasetools/installend/update_device_name.sh:install/bin/installend/update_device_name.sh
 
-# Audio configurations
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-	$(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
-
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
