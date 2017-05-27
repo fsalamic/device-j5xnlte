@@ -105,16 +105,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
 	$(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
-# Configuration files
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/Diag.cfg:system/etc/Diag.cfg \
-	$(LOCAL_PATH)/configs/Diag_audio.cfg:system/etc/Diag_audio.cfg \
-	$(LOCAL_PATH)/configs/Diag_gps.cfg:system/etc/Diag_gps.cfg \
-	$(LOCAL_PATH)/configs/Diag_volte.cfg:system/etc/Diag_volte.cfg \
-	$(LOCAL_PATH)/configs/Diag_zero.cfg:system/etc/Diag_zero.cfg \
-	$(LOCAL_PATH)/configs/mmi.cfg:system/etc/mmi.cfg \
-	$(LOCAL_PATH)/configs/MMI_PCBA.cfg:system/etc/MMI_PCBA.cfg
-
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
