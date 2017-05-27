@@ -29,6 +29,10 @@ LOCAL_PATH := device/samsung/j5-common
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Audio configuration files
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+
 # Remove packages
 PRODUCT_PACKAGES += \
 	RemovePackages
