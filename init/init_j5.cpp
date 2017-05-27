@@ -72,6 +72,11 @@ void init_target_properties(void)
 		model = (char *)"SM-G530G";
 		network_type=LTE_DEVICE;
 	}
+	else if (strstr(bootloader,"J5008")) {
+		device = (char *)"j5ltechn";
+		model = (char *)"SM-J5008";
+		network_type=LTE_DEVICE;
+	}
 	else {
 		return;
 	}

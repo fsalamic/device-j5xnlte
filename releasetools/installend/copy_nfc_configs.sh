@@ -21,7 +21,7 @@
 # Mount /system
 mount_fs system
 
-if [ $VARIANT == "nltexx" ]; then
+if [ $VARIANT == "nltexx" ] || [ $VARIANT == "ltechn" ]; then
 	rm /system/lib/hw/nfc_nci.msm8916.so
 	rm /system/etc/libnfc-sec.conf
 	rm /system/etc/libnfc-sec-hal.conf

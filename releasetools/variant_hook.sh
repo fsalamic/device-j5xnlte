@@ -22,6 +22,7 @@ case $BOOTLOADER in
   J500FN*)    VARIANT="nltexx" ;;
   J500F*)     VARIANT="ltexx" ;;
   J500H*)     VARIANT="3gxx" ;;
+  J5008*)     VARIANT="ltechn" ;;
   *)          VARIANT="unknown" ;;
 esac
 
