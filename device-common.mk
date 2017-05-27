@@ -64,13 +64,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	libFLAC
 
-#VoLTE calling support
-PRODUCT_PACKAGES += \
-	com.android.ims \
-	com.android.ims.internal \
-	ims-common \
-	voip-common
-
 # Boot jars
 PRODUCT_BOOT_JARS += \
 	qcom.fmradio
