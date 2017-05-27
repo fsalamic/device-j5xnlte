@@ -52,13 +52,13 @@ PRODUCT_PACKAGES += \
 
 # NFC prebuilt files
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml \
+	$(LOCAL_PATH)/configs/nfc/nfcee_access.xml:system/etc/nfcee_access.xml \
 	packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
-	$(LOCAL_PATH)/nfc/route.xml:system/etc/param/route.xml \
-	$(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-	$(LOCAL_PATH)/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-	$(LOCAL_PATH)/nfc/libnfc-sec-hal.conf:system/etc/libnfc-sec-hal.conf \
-	$(LOCAL_PATH)/nfc/libnfc-sec.conf:system/etc/libnfc-sec.conf
+	$(LOCAL_PATH)/configs/nfc/route.xml:system/etc/param/route.xml \
+	$(LOCAL_PATH)/configs/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+	$(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+	$(LOCAL_PATH)/configs/nfc/libnfc-sec-hal.conf:system/etc/libnfc-sec-hal.conf \
+	$(LOCAL_PATH)/configs/nfc/libnfc-sec.conf:system/etc/libnfc-sec.conf
 
 # Audio
 PRODUCT_PACKAGES += \
