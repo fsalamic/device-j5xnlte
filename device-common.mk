@@ -33,23 +33,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
-# Remove packages
-PRODUCT_PACKAGES += \
-	RemovePackages
-
-# Camera
-PRODUCT_PACKAGES += Snap
-
-#NFC
-PRODUCT_PACKAGES += \
-	Tag \
-	com.android.nfc_extras \
-	com.android.nfc.helper \
-	NfcNci \
-	libnfc_nci \
-	libnfc_nci_jni \
-	libpn547_fw
-
 # NFC prebuilt files
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/nfc/nfcee_access.xml:system/etc/nfcee_access.xml \
@@ -59,22 +42,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
 	$(LOCAL_PATH)/configs/nfc/libnfc-sec-hal.conf:system/etc/libnfc-sec-hal.conf \
 	$(LOCAL_PATH)/configs/nfc/libnfc-sec.conf:system/etc/libnfc-sec.conf
-
-# Audio
-PRODUCT_PACKAGES += \
-	libFLAC
-
-# SHIM RIL
-PRODUCT_PACKAGES += \
-	libril_shim
-
-# Doze
-PRODUCT_PACKAGES += \
-	SamsungDoze
-
-# Ramdisk
-PRODUCT_PACKAGES += \
-	init.target.rc
 
 # OTA scripts
 PRODUCT_COPY_FILES += \
@@ -97,6 +64,39 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
+# Remove packages
+PRODUCT_PACKAGES += \
+	RemovePackages
+
+# Camera
+PRODUCT_PACKAGES += Snap
+
+#NFC
+PRODUCT_PACKAGES += \
+	Tag \
+	com.android.nfc_extras \
+	com.android.nfc.helper \
+	NfcNci \
+	libnfc_nci \
+	libnfc_nci_jni \
+	libpn547_fw
+
+# Audio
+PRODUCT_PACKAGES += \
+	libFLAC
+
+# SHIM RIL
+PRODUCT_PACKAGES += \
+	libril_shim
+
+# Doze
+PRODUCT_PACKAGES += \
+	SamsungDoze
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+	init.target.rc
 
 # append the updater uri to the product properties if set
 ifneq ($(CM_UPDATER_OTA_URI),)
