@@ -33,6 +33,10 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# Media (camera) configuration files
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml
+
 # NFC prebuilt files
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/nfc/nfcee_access.xml:system/etc/nfcee_access.xml \
