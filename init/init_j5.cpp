@@ -31,7 +31,6 @@
 
 void init_target_properties(void)
 {
-	char bootloader[PROP_VALUE_MAX];
 	char *device = NULL;
 	char *model = NULL;
 	char *operator_alpha = NULL;
@@ -40,39 +39,39 @@ void init_target_properties(void)
 	int network_type = 1;
 
 	/* get the bootloader string */
-	property_get("ro.bootloader", bootloader);
+	std::string bootloader = property_get("ro.bootloader");
 
-	if (strstr(bootloader,"J500FN")) {
+	if (bootloader.find("J500FN") == 0) {
 		device = (char *)"j5nlte";
 		model = (char *)"SM-G530FN";
 		network_type=LTE_DEVICE;
 	}
-	else if (strstr(bootloader,"J500F")) {
+	else if (bootloader.find("J500F") == 0) {
 		device = (char *)"j5lte";
 		model = (char *)"SM-G530F";
 		network_type=LTE_DEVICE;
 	}
-	else if (strstr(bootloader,"J500H")) {
+	else if (bootloader.find("J500H") == 0) {
 		device = (char *)"j53gxx";
 		model = (char *)"SM-G530H";
 		network_type=GSM_DEVICE;
 	}
-	else if (strstr(bootloader,"J500M")) {
+	else if (bootloader.find("J500M") == 0) {
 		device = (char *)"j5ltedx";
 		model = (char *)"SM-G530M";
 		network_type=LTE_DEVICE;
 	}
-	else if (strstr(bootloader,"J500Y")) {
+	else if (bootloader.find("J500Y") == 0) {
 		device = (char *)"j5ltedo";
 		model = (char *)"SM-G530Y";
 		network_type=LTE_DEVICE;
 	}
-	else if (strstr(bootloader,"J500G")) {
+	else if (bootloader.find("J500G") == 0) {
 		device = (char *)"j5lteub";
 		model = (char *)"SM-G530G";
 		network_type=LTE_DEVICE;
 	}
-	else if (strstr(bootloader,"J5008")) {
+	else if (bootloader.find("J5008") == 0) {
 		device = (char *)"j5ltechn";
 		model = (char *)"SM-J5008";
 		network_type=LTE_DEVICE;
@@ -81,6 +80,6 @@ void init_target_properties(void)
 		return;
 	}
 	/* set the properties */
-	set_target_properties((char *)bootloader, device, model,
+	set_target_properties((char *)bootloader.c_str(), device, model,
 		       network_type, operator_alpha, operator_numeric);
 }
