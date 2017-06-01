@@ -43,21 +43,21 @@ void init_target_properties(void)
 	property_get("ro.bootloader", bootloader);
 
 	if (strstr(bootloader,"J500FN")) {
-		device ="j5nltexx";
-		model ="SM-G530FN";
+		device = (char *)"j5nltexx";
+		model = (char *)"SM-G530FN";
 		network_type=LTE_DEVICE;
 	}
 	else if (strstr(bootloader,"J500F")) {
-		device ="j5ltexx";
-		model ="SM-G530F";
+		device = (char *)"j5ltexx";
+		model = (char *)"SM-G530F";
 		network_type=LTE_DEVICE;
 	}
 	else if (strstr(bootloader,"J500H")) {
-		device ="j53gxx";
-		model ="SM-G530H";
+		device = (char *)"j53gxx";
+		model = (char *)"SM-G530H";
 		network_type=GSM_DEVICE;
 	}
 	/* set the properties */
-	set_target_properties(bootloader, device, model,
+	set_target_properties((char *)bootloader, device, model,
 		       network_type, operator_alpha, operator_numeric);
 }
