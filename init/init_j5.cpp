@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2013, The Linux Foundation. All rights reserved.
+   Copyright (c) 2017, The Linux Foundation. All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
@@ -27,73 +27,37 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "vendor_init.h"
-#include "property_service.h"
-#include "log.h"
-#include "util.h"
-
-void cdma_properties(char const *operator_alpha,
-		char const *operator_numeric,
-		char const *default_network)
-{
-	/* Dynamic CDMA Properties */
-	property_set("ro.cdma.home.operator.alpha", operator_alpha);
-	property_set("ro.cdma.home.operator.numeric", operator_numeric);
-	property_set("ro.telephony.default_network", default_network);
-
-	/* Static CDMA Properties */
-	property_set("ril.subscription.types", "NV,RUIM");
-	property_set("ro.telephony.default_cdma_sub", "0");
-	property_set("ro.telephony.get_imsi_from_sim", "true");
-	property_set("ro.telephony.ril.config", "newDriverCallU,newDialCode");
-	property_set("telephony.lteOnCdmaDevice", "1");
-}
-
-void gsm_lte_properties(char const * default_network)
-{
-	property_set("persist.radio.lte_vrte_ltd", "1");
-	property_set("telephony.lteOnCdmaDevice", "0");
-	property_set("ro.telephony.default_network", default_network);
-}
+#include <init_msm8916.h>
 
 void init_target_properties(void)
 {
 	char bootloader[PROP_VALUE_MAX];
-	char device[PROP_VALUE_MAX];
+	char *device = NULL;
+	char *model = NULL;
+	char *operator_alpha = NULL;
+	char *operator_numeric = NULL;
+
+	int network_type = 1;
 
 	/* get the bootloader string */
 	property_get("ro.bootloader", bootloader);
 
 	if (strstr(bootloader,"J500FN")) {
-		property_set("ro.build.product", "j5nltexx");
-		property_set("ro.product.device", "j5nltexx");
-		property_set("ro.product.model", "SM-J500FN");
-		gsm_lte_properties("10");
+		device ="j5nltexx";
+		model ="SM-G530FN";
+		network_type=LTE_DEVICE;
 	}
 	else if (strstr(bootloader,"J500F")) {
-		property_set("ro.build.product", "j5ltexx");
-		property_set("ro.product.device", "j5ltexx");
-		property_set("ro.product.model", "SM-J500F");
-		gsm_lte_properties("10");
+		device ="j5ltexx";
+		model ="SM-G530F";
+		network_type=LTE_DEVICE;
 	}
 	else if (strstr(bootloader,"J500H")) {
-		property_set("ro.build.product", "j53gxx");
-		property_set("ro.product.device", "j53gxx");
-		property_set("ro.product.model", "SM-J500H");
-		property_set("persist.radio.rat_on", "combine");
-		property_set("ro.telephony.default_network", "9");
+		device ="j53gxx";
+		model ="SM-G530H";
+		network_type=GSM_DEVICE;
 	}
-
-	property_get("ro.product.device", device);
-	INFO("Found bootloader id %s setting build properties for %s device\n", bootloader, device);
-}
-
-void vendor_load_properties(void)
-{
-	/* set the device properties */
-	init_target_properties();
+	/* set the properties */
+	set_target_properties(bootloader, device, model,
+		       network_type, operator_alpha, operator_numeric);
 }
