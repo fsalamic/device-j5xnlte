@@ -57,6 +57,9 @@ void init_target_properties(void)
 		model = (char *)"SM-G530H";
 		network_type=GSM_DEVICE;
 	}
+	else {
+		return;
+	}
 	/* set the properties */
 	set_target_properties((char *)bootloader, device, model,
 		       network_type, operator_alpha, operator_numeric);
