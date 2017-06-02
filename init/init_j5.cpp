@@ -57,6 +57,21 @@ void init_target_properties(void)
 		model = (char *)"SM-G530H";
 		network_type=GSM_DEVICE;
 	}
+	else if (strstr(bootloader,"J500M")) {
+		device = (char *)"j5ltedx";
+		model = (char *)"SM-G530M";
+		network_type=LTE_DEVICE;
+	}
+	else if (strstr(bootloader,"J500Y")) {
+		device = (char *)"j5ltedo";
+		model = (char *)"SM-G530Y";
+		network_type=LTE_DEVICE;
+	}
+	else if (strstr(bootloader,"J500G")) {
+		device = (char *)"j5lteub";
+		model = (char *)"SM-G530G";
+		network_type=LTE_DEVICE;
+	}
 	else {
 		return;
 	}
