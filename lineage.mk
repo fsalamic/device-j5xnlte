@@ -1,6 +1,5 @@
 # Release name
 PRODUCT_RELEASE_NAME := Samsung Galaxy J5
-CM_BUILDTYPE := NIGHTLY
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 720
