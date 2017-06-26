@@ -43,12 +43,12 @@ void init_target_properties(void)
 	property_get("ro.bootloader", bootloader);
 
 	if (strstr(bootloader,"J500FN")) {
-		device = (char *)"j5nltexx";
+		device = (char *)"j5nlte";
 		model = (char *)"SM-G530FN";
 		network_type=LTE_DEVICE;
 	}
 	else if (strstr(bootloader,"J500F")) {
-		device = (char *)"j5ltexx";
+		device = (char *)"j5lte";
 		model = (char *)"SM-G530F";
 		network_type=LTE_DEVICE;
 	}
