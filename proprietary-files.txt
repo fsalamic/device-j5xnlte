@@ -33,17 +33,3 @@ lib/soundfx/libaudiosa_sec.so
 lib/soundfx/libaudioeffectoffload.so
 lib/soundfx/libaudiosa_sec.so
 lib/soundfx/libmyspace.so
-
-# Qualcomm framework
-vendor/lib/libdiag.so
-vendor/lib/libdsutils.so
-vendor/lib/libidl.so
-vendor/lib/libqcci_legacy.so
-vendor/lib/libqmi_cci.so
-vendor/lib/libqmi_client_qmux.so
-vendor/lib/libqmi_common_so.so
-vendor/lib/libqmi_csi.so
-vendor/lib/libqmi_encdec.so
-vendor/lib/libqmiservices.so
-vendor/lib/libqmi.so
-vendor/lib/lib-sec-disp.so
