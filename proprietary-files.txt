@@ -34,12 +34,6 @@ lib/soundfx/libaudioeffectoffload.so
 lib/soundfx/libaudiosa_sec.so
 lib/soundfx/libmyspace.so
 
-# Firmware
-etc/firmware/Signedrompatch_v30.bin
-etc/firmware/Signedrompatch_v24.bin
-etc/firmware/Signedrompatch_v21.bin
-etc/firmware/Signedrompatch_v20.bin
-
 # Qualcomm framework
 vendor/lib/libdiag.so
 vendor/lib/libdsutils.so
