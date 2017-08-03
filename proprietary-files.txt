@@ -34,7 +34,7 @@ lib/soundfx/libaudioeffectoffload.so
 lib/soundfx/libaudiosa_sec.so
 lib/soundfx/libmyspace.so
 
-## Camera
+# Camera
 etc/T13QL_s5k3l2xx_module_info.xml
 lib/hw/camera.msm8916.so:lib/hw/camera.vendor.msm8916.so
 lib/libaec_algo_front.so
