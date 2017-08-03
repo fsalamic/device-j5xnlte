@@ -71,11 +71,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += Snap
 
 #NFC
+BOARD_NFC_CHIPSET := pn547
+NXP_CHIP_TYPE := 1
+
 PRODUCT_PACKAGES += \
 	Tag \
 	com.android.nfc_extras \
 	com.android.nfc.helper \
 	NfcNci \
+	nfc_nci.pn54x.msm8916 \
 	libnfc_nci \
 	libnfc_nci_jni \
 	libpn547_fw
