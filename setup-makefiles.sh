@@ -24,4 +24,11 @@ export DEVICE_COMMON=j5-common
 export BOARD_COMMON=msm8916-common
 export VENDOR=samsung
 
+if [ -z "$SETUP_DEVICE_COMMON_DIR" ]; then
+	export SETUP_DEVICE_COMMON_DIR=1
+fi
+if [ -z "$SETUP_BOARD_COMMON_DIR" ]; then
+	export SETUP_BOARD_COMMON_DIR=0
+fi
+
 ./../../$VENDOR/$BOARD_COMMON/setup-makefiles.sh $@
