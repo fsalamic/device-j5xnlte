@@ -48,7 +48,7 @@ void init_target_properties(void)
 	if (bootloader.find("J500FN") == 0) {
 		build_id = (char *)"MMB29M";
 		device = (char *)"j5nlte";
-		model = (char *)"SM-G530FN";
+		model = (char *)"SM-J500FN";
 		name = (char *)"j5nltexx";
 		network_type=LTE_DEVICE;
 		version_release = (char *)"6.0.1";
@@ -56,7 +56,7 @@ void init_target_properties(void)
 	else if (bootloader.find("J500F") == 0) {
 		build_id = (char *)"MMB29M";
 		device = (char *)"j5lte";
-		model = (char *)"SM-G530F";
+		model = (char *)"SM-J500F";
 		name = (char *)"j5ltexx";
 		network_type=LTE_DEVICE;
 		version_release = (char *)"6.0.1";
@@ -65,7 +65,7 @@ void init_target_properties(void)
 		bootloader_str = (char *)"J500HXXU2BQC4";
 		build_id = (char *)"MMB29M";
 		device = (char *)"j53";
-		model = (char *)"SM-G530H";
+		model = (char *)"SM-J500H";
 		name = (char *)"j53gxx";
 		network_type=GSM_DEVICE;
 		version_release = (char *)"6.0.1";
@@ -73,7 +73,7 @@ void init_target_properties(void)
 	else if (bootloader.find("J500M") == 0) {
 		build_id = (char *)"MMB29M";
 		device = (char *)"j5lte";
-		model = (char *)"SM-G530M";
+		model = (char *)"SM-J500M";
 		name = (char *)"j5ltedx";
 		network_type=LTE_DEVICE;
 		version_release = (char *)"6.0.1";
@@ -81,7 +81,7 @@ void init_target_properties(void)
 	else if (bootloader.find("J500Y") == 0) {
 		build_id = (char *)"MMB29M";
 		device = (char *)"j5ylte";
-		model = (char *)"SM-G530Y";
+		model = (char *)"SM-J500Y";
 		name = (char *)"j5ltedo";
 		network_type=LTE_DEVICE;
 		version_release = (char *)"6.0.1";
@@ -89,7 +89,7 @@ void init_target_properties(void)
 	else if (bootloader.find("J500G") == 0) {
 		build_id = (char *)"MMB29M";
 		device = (char *)"j5lteub";
-		model = (char *)"SM-G530G";
+		model = (char *)"SM-J500G";
 		network_type=LTE_DEVICE;
 		version_release = (char *)"6.0.1";
 	}
