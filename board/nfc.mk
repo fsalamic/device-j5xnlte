@@ -1,0 +1,3 @@
+# NFC Chip type
+BOARD_NFC_CHIPSET := pn547
+NXP_CHIP_TYPE := 1

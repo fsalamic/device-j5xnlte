@@ -18,14 +18,5 @@ include device/samsung/msm8916-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/samsung/j5-common
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
-
-# Init
-TARGET_LIBINIT_MSM8916_DEFINES_FILE := $(LOCAL_PATH)/init/init_j5.cpp
-
-# Lights
-TARGET_PROVIDES_LIBLIGHT := false
-
-# Wifi
-BOARD_HAVE_SAMSUNG_WIFI := true
+# Include board config fragments
+include $(LOCAL_PATH)/board/*.mk
