@@ -64,7 +64,7 @@ void init_target_properties(void)
 	else if (bootloader.find("J500H") == 0) {
 		bootloader_str = (char *)"J500HXXU2BQC4";
 		build_id = (char *)"MMB29M";
-		device = (char *)"j53";
+		device = (char *)"j53g";
 		model = (char *)"SM-J500H";
 		name = (char *)"j53gxx";
 		network_type=GSM_DEVICE;
