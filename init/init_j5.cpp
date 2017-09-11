@@ -43,7 +43,7 @@ void init_target_properties(void)
 	int network_type = 1;
 
 	/* get the bootloader string */
-	std::string bootloader = property_get("ro.bootloader");
+	std::string bootloader = android::base::GetProperty("ro.bootloader", "");
 
 	if (bootloader.find("J500FN") == 0) {
 		build_id = (char *)"MMB29M";
