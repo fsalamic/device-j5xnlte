@@ -74,7 +74,7 @@ void init_target_properties(void)
 		build_id = (char *)"MMB29M";
 		device = (char *)"j5lte";
 		model = (char *)"SM-J500M";
-		name = (char *)"j5ltedx";
+		name = (char *)"j5lteub";
 		network_type=LTE_DEVICE;
 		version_release = (char *)"6.0.1";
 	}
@@ -88,8 +88,9 @@ void init_target_properties(void)
 	}
 	else if (bootloader.find("J500G") == 0) {
 		build_id = (char *)"MMB29M";
-		device = (char *)"j5lteub";
+		device = (char *)"j5lte";
 		model = (char *)"SM-J500G";
+		name = (char *)"j5ltedx";
 		network_type=LTE_DEVICE;
 		version_release = (char *)"6.0.1";
 	}
