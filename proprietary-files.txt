@@ -1,5 +1,27 @@
 # Samsung Package Version J500HXXU1APE5_J500HOXE1APE5_J500HXXU1APC2 (unless otherwise specified and/or tagged)
 
+# ACDBs
+etc/Bluetooth_cal.acdb
+etc/General_cal.acdb
+etc/Global_cal.acdb
+etc/Handset_cal.acdb
+etc/Hdmi_cal.acdb
+etc/Headset_cal.acdb
+etc/Speaker_cal.acdb
+
+# Qualcomm framework
+vendor/lib/libdiag.so|8c4d49b3c7a40d7a87f063982bd08181dce5135a
+vendor/lib/libdsutils.so|8cf50e480004658b076d352dc23074b32a775705
+vendor/lib/libidl.so|ee39892a2529284084906c18b36bb517e5001a6d
+vendor/lib/libqcci_legacy.so|5f0f25a72677d0b3183031490e45b6de26735327
+vendor/lib/libqmi_cci.so|09c271802d8006d28b04ded859eea012ff0a2ba3
+vendor/lib/libqmi_client_qmux.so|79cb7b305bd9f87c581f26c805f4ca2bbdf3a069
+vendor/lib/libqmi_common_so.so|6c70d0c23898f4d5aa5a962736a06aa3d21e7aa6
+vendor/lib/libqmi_csi.so|120cc5b5c661f4e6d3e19db5cb84c6d49492668d
+vendor/lib/libqmi_encdec.so|82e39ae7e4bb8651d06fdae99fc38e3fb390b62d
+vendor/lib/libqmiservices.so|639ad795ad821cef949dd7d780001d992a61d708
+vendor/lib/libqmi.so|e8d0ea6d7302e07d23dfb73a89b5818cebd054ef
+
 # Camera
 etc/T13QL_s5k3l2xx_module_info.xml
 lib/hw/camera.msm8916.so:lib/hw/camera.vendor.msm8916.so
