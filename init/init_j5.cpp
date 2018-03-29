@@ -45,46 +45,16 @@ void init_target_properties(void)
 	/* get the bootloader string */
 	std::string bootloader = android::base::GetProperty("ro.bootloader", "");
 
-	if (bootloader.find("J500FN") == 0) {
-		device = (char *)"j5nlte";
-		model = (char *)"SM-J500FN";
-		name = (char *)"j5nltexx";
-		network_type=LTE_DEVICE;
+	if (bootloader.find("J510FN") == 0) {
+                device = (char *)"j5xnlte";
+                model = (char *)"SM-J510FN";
+                name = (char *)"j5xnlte";
+                network_type=LTE_DEVICE;
 	}
-	else if (bootloader.find("J500F") == 0) {
-		device = (char *)"j5lte";
-		model = (char *)"SM-J500F";
-		name = (char *)"j5ltexx";
-		network_type=LTE_DEVICE;
-	}
-	else if (bootloader.find("J500H") == 0) {
-		device = (char *)"j53g";
-		model = (char *)"SM-J500H";
-		name = (char *)"j53gxx";
-		network_type=GSM_DEVICE;
-	}
-	else if (bootloader.find("J500M") == 0) {
-		device = (char *)"j5lte";
-		model = (char *)"SM-J500M";
-		name = (char *)"j5lteub";
-		network_type=LTE_DEVICE;
-	}
-	else if (bootloader.find("J500Y") == 0) {
-		device = (char *)"j5ylte";
-		model = (char *)"SM-J500Y";
-		name = (char *)"j5ltedo";
-		network_type=LTE_DEVICE;
-	}
-	else if (bootloader.find("J500G") == 0) {
-		device = (char *)"j5lte";
-		model = (char *)"SM-J500G";
-		name = (char *)"j5ltedx";
-		network_type=LTE_DEVICE;
-	}
-	else if (bootloader.find("J5008") == 0) {
-		device = (char *)"j5ltechn";
-		model = (char *)"SM-J5008";
-		name = (char *)"j5ltezm";
+	else if (bootloader.find("J510F") == 0) {
+		device = (char *)"j5xlte";
+		model = (char *)"SM-J510F";
+		name = (char *)"j5xlte";
 		network_type=LTE_DEVICE;
 	}
 	else {

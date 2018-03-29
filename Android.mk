@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter j5lte j5ltechn j5nlte j5nltexx j53gxx, $(TARGET_DEVICE)),)
+ifneq ($(filter j5xnlte j5xlte, $(TARGET_DEVICE)),)
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
