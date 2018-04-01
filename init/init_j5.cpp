@@ -57,6 +57,18 @@ void init_target_properties(void)
 		name = (char *)"j5xlte";
 		network_type=LTE_DEVICE;
 	}
+	else if (bootloader.find("J510MN") == 0) {
+		device = (char *)"j5xnlte";
+		model = (char *)"SM-J510FN";
+		name = (char *)"j5xnlte";
+		network_type=LTE_DEVICE;
+	}
+	else if (bootloader.find("J510GN") == 0) {
+		device = (char *)"j5xnlte";
+		model = (char *)"SM-J510FN";
+		name = (char *)"j5xnlte";
+		network_type=LTE_DEVICE;
+	}
 	else {
 		return;
 	}
