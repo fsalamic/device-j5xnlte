@@ -21,6 +21,10 @@ vendor/lib/libqmi_encdec.so|82e39ae7e4bb8651d06fdae99fc38e3fb390b62d
 vendor/lib/libqmiservices.so|639ad795ad821cef949dd7d780001d992a61d708
 vendor/lib/libqmi.so|e8d0ea6d7302e07d23dfb73a89b5818cebd054ef
 
+# QSEEcom - J500HXXU2BQC4_J500HOXE2BQC2_CAU
+bin/qseecomd:e901e0ca7ffa5888e4407ba8cbd209129d6dfa05c22c50db92f40e3ff035b0c0
+vendor/lib/libQSEEComAPI.so:ea9511b3cb7a5aa6c90526a02d37733fb64e9c2bbf58f58e14d32c625da7dc3e
+
 # Camera
 etc/D05QL_s5k5e3yx_module_info.xml
 etc/J05QF_sr552_module_info.xml
