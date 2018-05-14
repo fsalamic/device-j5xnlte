@@ -20,15 +20,10 @@ set -e
 
 # Required!
 export DEVICES="j5xnlte j5xlte"
-export DEVICE_COMMON=j5x-common
 export BOARD_COMMON=msm8916-common
 export VENDOR=samsung
 
-if [ -z "$SETUP_DEVICE_COMMON_DIR" ]; then
-	export SETUP_DEVICE_COMMON_DIR=1
-fi
-if [ -z "$SETUP_BOARD_COMMON_DIR" ]; then
-	export SETUP_BOARD_COMMON_DIR=0
-fi
+export SETUP_DEVICE_DIR=1
+export SETUP_BOARD_COMMON_DIR=0
 
 ./../../$VENDOR/$BOARD_COMMON/extract-files.sh $@

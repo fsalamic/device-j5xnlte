@@ -1,4 +1,4 @@
-# android_device_samsung_j5x-common
+# android_device_samsung_j5xnlte
 
 ## Common device tree for Samsung Galaxy J5 2016
 
