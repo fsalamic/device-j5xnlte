@@ -21,7 +21,7 @@ $(call inherit-product, device/samsung/msm8916-common/msm8916.mk)
 # Inherit from vendor
 $(call inherit-product-if-exists, vendor/samsung/j5x-common/j5x-common-vendor.mk)
 
-LOCAL_PATH := device/samsung/j5x-common
+LOCAL_PATH := device/samsung/j5xnlte
 
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += \
