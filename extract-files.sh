@@ -19,11 +19,12 @@
 set -e
 
 # Required!
-export DEVICES="j5xnlte j5xlte"
-export BOARD_COMMON=msm8916-common
+export DEVICE=j5nlte
+export DEVICE_COMMON=j5-common
 export VENDOR=samsung
 
 export SETUP_DEVICE_DIR=1
+export SETUP_DEVICE_COMMON_DIR=0
 export SETUP_BOARD_COMMON_DIR=0
 
-./../../$VENDOR/$BOARD_COMMON/extract-files.sh $@
+./../../$VENDOR/$DEVICE_COMMON/extract-files.sh $@

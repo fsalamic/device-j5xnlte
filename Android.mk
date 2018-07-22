@@ -1,7 +1,7 @@
+ifneq ($(filter j5xnlte, $(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
-
-ifneq ($(filter j5xnlte j5xlte, $(TARGET_DEVICE)),)
-
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
+include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(CLEAR_VARS)
 
 endif

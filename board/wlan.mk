@@ -1,2 +1,0 @@
-# Wifi
-BOARD_HAVE_SAMSUNG_WIFI := true
